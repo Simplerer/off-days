@@ -20,6 +20,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    posts: {
+      type: Schema.Types.ObjectId,
+      ref: 'Post'
+    },
     likes: [likeSchema]
   },
   {
@@ -27,7 +31,7 @@ const userSchema = new Schema(
   }
   );
 
-  userSchema.pre('save', async (next) => {
+  userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
       const saltRounds = 10;
       this.password = await bcrypt.hash(this.password, saltRounds);
@@ -36,7 +40,7 @@ const userSchema = new Schema(
     next();
   });
 
-  userSchema.methods.correctPassword = async (password) => {
+  userSchema.methods.correctPassword = async function (password) {
     return bcrypt.compare(password, this.password);
   };
 

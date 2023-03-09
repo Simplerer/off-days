@@ -6,6 +6,7 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
+    posts: [Post]
     likes: [Likes]
   }
 
@@ -48,9 +49,9 @@ const typeDefs = gql`
     ): Auth
     login(username: String!, password: String!): Auth
     deleteUser: User
-    createLike(userId: ID, event: String!): User 
     addPost(text: String, userId: ID): Post
     createComment(text: String!, userId: ID!, postId: ID!): Comment
+    createLike(userId: ID, event: String!): User 
   }
 `;
 
