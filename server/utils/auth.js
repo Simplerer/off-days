@@ -22,6 +22,8 @@ module.exports = {
     } catch {
       console.log('Token is no good!')
     }
+
+    return req;
   },
   signToken: function({ username, email, _id }) {
     const payload = { username, email, _id};

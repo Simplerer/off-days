@@ -26,7 +26,7 @@ const typeDefs = gql`
     _id: ID
     text: String
     author: User
-    post: Post
+    post: ID
     createdAt: String
   }
 

@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const likeSchema = require('./Likes');
+const Post = require('./Post');
 
 const userSchema = new Schema(
   {
@@ -20,10 +21,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    posts: {
-      type: Schema.Types.ObjectId,
-      ref: 'Post'
-    },
+    posts: [Post.schema],
     likes: [likeSchema]
   },
   {

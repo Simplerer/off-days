@@ -11,14 +11,8 @@ const resolvers = {
       return await User.find();
     },
     getPosts: async (_parent, args, context) => {
-      return await Post.find(
-      //   {
-      //   $or: [
-      //     {author: context.user.username},
-      //     {author: args.username}
-      //   ]
-      // }
-      )
+      return await Post.find()
+      .populate('author')
     }
   },
 
@@ -43,13 +37,14 @@ const resolvers = {
       return { user, token };
     },
     addPost: async (_parent, args, context) => {
-      console.log(args)
-      console.log(context)
 
       if (context.user) {
         const post = await Post.create({
-          text: args.text, userId: context.user._id
+          text: args.text, author: context.user._id
         })
+        await User.findByIdAndUpdate(context.user._id,
+          { $push: { posts: post }}
+          )
         return post.populate('author')
       } else {
         throw new AuthenticationError('You must be logged in to Post!')
