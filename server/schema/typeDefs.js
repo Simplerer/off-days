@@ -35,10 +35,49 @@ const typeDefs = gql`
     user: User
   }
 
+  type Performer {
+    name: String
+    image: String
+    url: String
+  }
+
+  type Venue {
+    name: String
+    url: String
+  }
+
+  type SeatGeek {
+    id: ID
+    venue: Venue
+    performers: [Performer]
+  }
+
+  type Datetime {
+    year: Int 
+    month: Int 
+    day: Int 
+  }
+
+  type Date {
+    datetime: Datetime 
+  }
+
+  type Holiday {
+    name: String
+    date: Date
+    description: String
+    primary_type: String
+    
+  }
+
   type Query {
     getMe: User
     getUsers: [User]
     getPosts: [Post]
+    seatGeekSearch: [SeatGeek]
+    #(city: String!)
+    holidays: [Holiday]
+    #(date: Int)
   }
 
   type Mutation {

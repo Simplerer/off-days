@@ -2,6 +2,10 @@ const { User, Post, Comment } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
+const axios = require('axios');
+const key = "MzIyNzAwMjF8MTY3ODMzMzk3OS40OTEwMDMz";
+const pword = "54e3e807cb4e9acb864b73d3d0f3b8e5a0d5bc98f4d8243fcfaba7b69cf20d6c";
+
 const resolvers = {
   Query: {
     getMe: async (_parent, _args, context) => {
@@ -13,6 +17,24 @@ const resolvers = {
     getPosts: async (_parent, args, context) => {
       return await Post.find()
       .populate('author')
+    },
+    seatGeekSearch: async () => {
+      const { data }  = await 
+      axios.get('https://api.seatgeek.com/2/events?lat=35.5914&lon=-82.551', {
+        mode: 'no-cors',
+        auth: {
+          "username": key,
+          "password": pword
+        }
+      })
+      return data.events
+    },
+    holidays: async (_parent, _args) => {
+      const { data } = await
+      axios.get('https://calendarific.com/api/v2/holidays?&api_key=06e5923a912a99b087d110c3e1dd9326415107b9&country=US&year=2023&month=3', {
+        mode: 'no-cors'
+      })
+      return data.response.holidays
     }
   },
 
