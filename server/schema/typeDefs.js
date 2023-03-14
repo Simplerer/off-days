@@ -84,6 +84,26 @@ const typeDefs = gql`
     game_url: String
   }
 
+  type Park {
+    states: String
+    fullName: String
+    url: String
+  }
+
+  type Image {
+    url: String
+    altText: String
+  }
+
+  type Parks {
+    id: ID
+    url: String
+    title: String
+    shortDescription: String
+    images: [Image]
+    relatedParks: [Park]
+  }
+
   type Query {
     getMe: User
     getUsers: [User]
@@ -94,6 +114,7 @@ const typeDefs = gql`
     #(date: Int)
     breweries: [Brewery]
     gaming: [Game]
+    parks: [Parks]
   }
 
   type Mutation {

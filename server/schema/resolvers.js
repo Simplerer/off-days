@@ -55,6 +55,13 @@ const resolvers = {
         games.push(game)
       }
       return games;
+    },
+    parks: async (_parent, _args) => {
+      const { data } = await
+      axios.get('https://developer.nps.gov/api/v1/thingstodo?stateCode=NC&limit=20&q=hiking%2C%20camping&fields=entranceFees&api_key=j8tYaJwYWMh7IHgL0SgKi6QoHEyYzKMPSfcQSdtw', {
+        mode: 'no-cors'
+      });
+      return data.data;
     }
   },
 
