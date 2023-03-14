@@ -27,14 +27,34 @@ const resolvers = {
           "password": pword
         }
       })
-      return data.events
+      return data.events;
     },
     holidays: async (_parent, _args) => {
       const { data } = await
       axios.get('https://calendarific.com/api/v2/holidays?&api_key=06e5923a912a99b087d110c3e1dd9326415107b9&country=US&year=2023&month=3', {
         mode: 'no-cors'
       })
-      return data.response.holidays
+      return data.response.holidays;
+    },
+    breweries: async (_parent, _args) => {
+      const randIndex = Math.floor(Math.random()*6)
+      const { data } = await 
+      axios.get(`https://api.openbrewerydb.org/breweries?by_city=asheville&page=${randIndex}&per_page=5`, {
+        mode: 'no-cors'
+      });
+      return data;
+    },
+    gaming: async (_parent, _args) => {
+      const { data } = await
+      axios.get('https://www.freetogame.com/api/games', {
+        mode: 'no-cors'
+      });
+      let games = []
+      for (let i=0; i < 11; i++){
+        let game = data[Math.floor(Math.random()*data.length)]
+        games.push(game)
+      }
+      return games;
     }
   },
 

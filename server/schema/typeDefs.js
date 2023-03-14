@@ -67,7 +67,21 @@ const typeDefs = gql`
     date: Date
     description: String
     primary_type: String
-    
+  }
+
+  type Brewery {
+    id: ID
+    name: String
+    street: String
+    website_url: String
+  }
+
+  type Game {
+    id: ID
+    title: String
+    thumbnail: String
+    short_description: String
+    game_url: String
   }
 
   type Query {
@@ -78,6 +92,8 @@ const typeDefs = gql`
     #(city: String!)
     holidays: [Holiday]
     #(date: Int)
+    breweries: [Brewery]
+    gaming: [Game]
   }
 
   type Mutation {
