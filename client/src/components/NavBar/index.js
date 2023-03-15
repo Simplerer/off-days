@@ -4,7 +4,7 @@ import Auth from '../../utils/auth';
 
 function Navbar() {
   return(
-
+<h1>BLLLLLL</h1>
   )
 }
 
