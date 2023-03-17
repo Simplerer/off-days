@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/NavBar';
 import pages from './pages';
-const { Outdoors, WrongPage, Landing } = pages
+const { Outdoors, WrongPage, Landing, Indoors, Events, Brews } = pages
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -30,23 +30,36 @@ function App() {
     <>
       <ApolloProvider client={client}>
         <Router>
-          <Navbar />
-          <div className='content'>
-            <Routes>
-              <Route
-                path='/'
-                element={<Landing />}
-              />
-              <Route
-                path='/outdoors'
-                element={<Outdoors />}
-              />
-              <Route
-                path='*'
-                element={<WrongPage />}
-              />
-            </Routes>
-          </div>
+          <Navbar>
+            <div className='content'>
+              <Routes>
+                <Route
+                  path='/'
+                  element={<Landing />}
+                />
+                <Route
+                  path='/outdoors'
+                  element={<Outdoors />}
+                />
+                <Route
+                  path='/indoors'
+                  element={<Indoors />}
+                />
+                <Route
+                  path='/events'
+                  element={<Events />}
+                />
+                <Route
+                  path='/brews'
+                  element={<Brews />}
+                />
+                <Route
+                  path='*'
+                  element={<WrongPage />}
+                />
+              </Routes>
+            </div>
+          </ Navbar>
         </Router>
       </ApolloProvider>
     </>
