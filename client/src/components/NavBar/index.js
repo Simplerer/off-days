@@ -9,7 +9,8 @@ import {
   FaHome,
   FaGamepad,
   FaGuitar,
-  FaBeer
+  FaBeer,
+  FaGavel
 } from 'react-icons/fa';
 
 function Navbar({children, background }) {
@@ -40,6 +41,11 @@ function Navbar({children, background }) {
       path:'/indoors',
       name: 'Indoors',
       icon:<FaGamepad/>
+    },
+    {
+      path:'/forum',
+      name: 'Forum',
+      icon:<FaGavel/>
     }
   ];
   return (
@@ -56,14 +62,14 @@ function Navbar({children, background }) {
         </div>
         {
           menuItems.map((item, index) => (
-            <NavLink to={item.path} key={index} className="link" activeClassName="active">
+            <NavLink to={item.path} key={index} className="link" >
               <div className="icon">{item.icon}</div>
               <div style={{display: isOpen ? 'block' : 'none'}} className="link-text">{item.name}</div>
             </NavLink>
           ))
         }
       </div>
-      <main style={{backgroundColor: background ? '' : '#C9E4CA'}}>{children}</main>
+      <main className='content' style={{backgroundColor: background ? '' : '#C9E4CA'}}>{children}</main>
     </div>
   )
 }

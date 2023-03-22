@@ -1,10 +1,11 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/NavBar';
+import MobileNav from './components/MobileNav';
 import pages from './pages';
 import Particle from './components/Particles';
 const { Outdoors, WrongPage, Landing, Indoors, Events, Brews } = pages
@@ -28,7 +29,19 @@ const client = new ApolloClient({
 
 
 function App() {
-  const [background, setBackground] = useState(true);
+  const [mobile, setMobile] = useState(true)
+  const listening = () => {
+    if (window.innerWidth <= 480) {
+      setMobile(false)
+    }
+    if (window.innerWidth > 480) {
+      setMobile(true)
+    }
+
+  }
+  window.addEventListener('resize', listening)
+
+  const [background, setBackground] = useState(false);
   const chillPlz = () => setBackground(!background);
 
   return (
@@ -37,39 +50,82 @@ function App() {
         <Particle />
       }
       <ApolloProvider client={client}>
+        {background 
+        ?
+        <button id='chillPlz' onClick={chillPlz}>
+          Chill<br></br>Time
+        </button>
+        :
+        <button id='chillPlz' onClick={chillPlz}>
+          Wild<br></br>Time
+        </button>
+        }
         <Router>
-          <Navbar background={background}>
-            <button id='chillPlz' onClick={chillPlz}>Chill<br></br>Time</button>
-
-            <div className='content' >
-              <Routes>
-                <Route
-                  path='/'
-                  element={<Landing />}
-                />
-                <Route
-                  path='/outdoors'
-                  element={<Outdoors />}
-                />
-                <Route
-                  path='/indoors'
-                  element={<Indoors />}
-                />
-                <Route
-                  path='/events'
-                  element={<Events />}
-                />
-                <Route
-                  path='/brews'
-                  element={<Brews />}
-                />
-                <Route
-                  path='*'
-                  element={<WrongPage />}
-                />
-              </Routes>
+          {mobile
+            ?
+            <Navbar background={background}>
+              <div>
+                <Routes>
+                  <Route
+                    path='/'
+                    element={<Landing />}
+                  />
+                  <Route
+                    path='/outdoors'
+                    element={<Outdoors />}
+                  />
+                  <Route
+                    path='/indoors'
+                    element={<Indoors />}
+                  />
+                  <Route
+                    path='/events'
+                    element={<Events />}
+                  />
+                  <Route
+                    path='/brews'
+                    element={<Brews />}
+                  />
+                  <Route
+                    path='*'
+                    element={<WrongPage />}
+                  />
+                </Routes>
+              </div>
+            </ Navbar>
+            :
+            <div>
+              <MobileNav />
+              <main>
+                <Routes>
+                  <Route
+                    path='/'
+                    element={<Landing />}
+                  />
+                  <Route
+                    path='/outdoors'
+                    element={<Outdoors />}
+                  />
+                  <Route
+                    path='/indoors'
+                    element={<Indoors />}
+                  />
+                  <Route
+                    path='/events'
+                    element={<Events />}
+                  />
+                  <Route
+                    path='/brews'
+                    element={<Brews />}
+                  />
+                  <Route
+                    path='*'
+                    element={<WrongPage />}
+                  />
+                </Routes>
+              </main>
             </div>
-          </ Navbar>
+          }
         </Router>
       </ApolloProvider>
     </>

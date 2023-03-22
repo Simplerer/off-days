@@ -1,9 +1,9 @@
 :root {
-  --paleGreen: #C9E4CA;
-  --lightGreen: #87BBA2;
-  --blue: #55828B;
-  --greeenBlue: #3B6064;
-  --darkerBlue: #364958;
+  --lightest: #C9E4CA;
+  --light: #87BBA2;
+  --mid: #55828B;
+  --dark: #3B6064;
+  --darkest: #364958;
 }
 * {
   margin: 0;
@@ -21,8 +21,8 @@ main {
 }
 
 .navbar {
-  background-color: var(--darkerBlue);
-  color: var(--paleGreen);
+  background-color: var(--darkest);
+  color: var(--lightest);
   height: 100vh;
   width: 300px;
   transition: all 0.4s;
@@ -47,21 +47,21 @@ main {
 
 .link {
   display: flex;
-  color: var(--paleGreen);
+  color: var(--lightest);
   padding: 10px 15px;
   gap: 15px;
   transition: all 0.4s;
 }
 
 .link:hover {
-  background-color: var(--blue);
-  color: var(--darkerBlue);
+  background-color: var(--mid);
+  color: var(--darkest);
   transition: all 0.4s;
 }
 
 .active {
-  background-color: var(--blue);
-  color: var(--darkerBlue);
+  background-color: var(--mid);
+  color: var(--darkest);
 }
 
 .icon, .link-text {

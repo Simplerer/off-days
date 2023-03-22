@@ -1,9 +1,13 @@
 :root {
-  --paleGreen: #C9E4CA;
-  --lightGreen: #87BBA2;
-  --blue: #55828B;
-  --greeenBlue: #3B6064;
-  --darkerBlue: #364958;
+  --lightest: #C9E4CA;
+  --light: #87BBA2;
+  --mid: #55828B;
+  --dark: #3B6064;
+  --darkest: #364958;
+}
+
+body {
+  background-color: #C9E4CA;
 }
 
 #chillPlz {
@@ -11,12 +15,12 @@
   top: 0;
   right: 0;
   margin: 4rem;
-  padding: 12px;
+  padding: 16px;
   border-radius: 50%;
-  background-color: var(--darkerBlue);
-  color: var(--paleGreen);
+  background-color: var(--darkest);
+  color: var(--lightest);
   font-size: 18px;
-  box-shadow: 4px 4px 4px var(--blue);
+  box-shadow: 4px 4px 4px var(--mid);
   cursor: pointer;
 }
 
@@ -33,4 +37,40 @@
   display: flex;
   justify-content: center;
   margin-top: 8%;
+}
+
+#welcome {
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+}
+
+#welcome h1 {
+  margin: auto;
+}
+
+#welcome img {
+  max-height: 450px;
+  max-width: 450px;
+}
+
+#pages {
+  display: flex;
+  justify-content: space-around;
+  margin: 2%;
+  padding: 3%;
+  font-size: 80px;
+}
+
+#pages div {
+  padding: 2%;
+  margin: 2%;
+  background-color: var(--lightest);
+  opacity: .7;
+}
+
+@media only screen and (max-width: 480px) {
+  body {
+    background-color: #C9E4CA;
+  }
 }
