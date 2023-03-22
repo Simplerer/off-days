@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
+import './index.css'
 
 // import Auth from '../../utils/auth';
 import {
@@ -11,7 +12,7 @@ import {
   FaBeer
 } from 'react-icons/fa';
 
-function Navbar({children}) {
+function Navbar({children, background }) {
   const[isOpen, setIsOpen] = useState(false);
   const menuOpen = () => setIsOpen(!isOpen);
   const menuItems = [
@@ -62,7 +63,7 @@ function Navbar({children}) {
           ))
         }
       </div>
-      <main>{children}</main>
+      <main style={{backgroundColor: background ? '' : '#C9E4CA'}}>{children}</main>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import Flip from 'react-reveal/Flip';
 
 function Landing() {
 
-  const [logo, setLogo] = useState(true)
+  const [logo, setLogo] = useState(false)
   useEffect(() => {
     setTimeout(() => {
       setLogo(!logo)
@@ -13,8 +13,8 @@ function Landing() {
   }, [])
 
   return (
-
-    <section>
+    <div>
+    <section id="landing">
       <Flip top>
         <h1>Let's find Something to do on your</h1>
       </Flip>
@@ -22,6 +22,7 @@ function Landing() {
         <img style={{ display: logo ? 'block' : 'none' }} src={title} alt='title page' />
       </Roll>
     </section>
+    </div>
   )
 };
 

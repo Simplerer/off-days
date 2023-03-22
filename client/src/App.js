@@ -28,19 +28,20 @@ const client = new ApolloClient({
 
 
 function App() {
-const [background, setBackground] = useState(true);
-const chillPlz = () => setBackground(!background)
+  const [background, setBackground] = useState(true);
+  const chillPlz = () => setBackground(!background);
 
   return (
     <>
-    {background && 
-    <Particle/>
-    }
+      {background &&
+        <Particle />
+      }
       <ApolloProvider client={client}>
         <Router>
-          <Navbar>
-            <button onClick={chillPlz}>Background Reset</button>
-            <div className='content'>
+          <Navbar background={background}>
+            <button id='chillPlz' onClick={chillPlz}>Chill<br></br>Time</button>
+
+            <div className='content' >
               <Routes>
                 <Route
                   path='/'

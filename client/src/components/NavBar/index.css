@@ -1,0 +1,69 @@
+:root {
+  --paleGreen: #C9E4CA;
+  --lightGreen: #87BBA2;
+  --blue: #55828B;
+  --greeenBlue: #3B6064;
+  --darkerBlue: #364958;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+}
+
+main {
+  width: 100%;
+  padding: 20px;
+}
+
+.navbar {
+  background-color: var(--darkerBlue);
+  color: var(--paleGreen);
+  height: 100vh;
+  width: 300px;
+  transition: all 0.4s;
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.logo {
+  font-size: 30;
+}
+
+.bars {
+  display: flex;
+  font-size: 25px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.link {
+  display: flex;
+  color: var(--paleGreen);
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.4s;
+}
+
+.link:hover {
+  background-color: var(--blue);
+  color: var(--darkerBlue);
+  transition: all 0.4s;
+}
+
+.active {
+  background-color: var(--blue);
+  color: var(--darkerBlue);
+}
+
+.icon, .link-text {
+  font-size: 20px;
+}
