@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from 'react';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -6,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import pages from './pages';
 import Particle from './components/Particles';
-import React from 'react';
 const { Outdoors, WrongPage, Landing, Indoors, Events, Brews } = pages
 
 const httpLink = createHttpLink({ uri: '/graphql' });
@@ -28,12 +28,18 @@ const client = new ApolloClient({
 
 
 function App() {
+const [background, setBackground] = useState(true);
+const chillPlz = () => setBackground(!background)
+
   return (
     <>
+    {background && 
     <Particle/>
+    }
       <ApolloProvider client={client}>
         <Router>
           <Navbar>
+            <button onClick={chillPlz}>Background Reset</button>
             <div className='content'>
               <Routes>
                 <Route

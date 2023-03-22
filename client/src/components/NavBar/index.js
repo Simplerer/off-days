@@ -13,7 +13,7 @@ import {
 
 function Navbar({children}) {
   const[isOpen, setIsOpen] = useState(false);
-  const menuOpen = () => setIsOpen (!isOpen);
+  const menuOpen = () => setIsOpen(!isOpen);
   const menuItems = [
     {
       path:'/',
