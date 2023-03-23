@@ -21,6 +21,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    homeTown: {type: String},
     posts: [Post.schema],
     likes: [likeSchema]
   },

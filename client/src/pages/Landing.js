@@ -24,7 +24,7 @@ function Landing() {
   useEffect(() => {
     setTimeout(() => {
       setPages(!pages)
-    }, 2500)
+    }, 3000)
   }, [])
 
   return (

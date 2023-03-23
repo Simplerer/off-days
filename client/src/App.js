@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -8,7 +8,7 @@ import Navbar from './components/NavBar';
 import MobileNav from './components/MobileNav';
 import pages from './pages';
 import Particle from './components/Particles';
-const { Outdoors, WrongPage, Landing, Indoors, Events, Brews } = pages
+const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Login } = pages
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -85,6 +85,10 @@ function App() {
                   <Route
                     path='/brews'
                     element={<Brews />}
+                  />
+                  <Route
+                    path='/login'
+                    element={<Login />}
                   />
                   <Route
                     path='*'
