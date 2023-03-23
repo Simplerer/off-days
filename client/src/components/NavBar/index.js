@@ -20,6 +20,11 @@ import {
 } from 'react-icons/fa';
 
 function Navbar({ children, background }) {
+
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  } 
   const [isOpen, setIsOpen] = useState(false);
   const menuOpen = () => setIsOpen(!isOpen);
   const menuItems = [
@@ -80,7 +85,7 @@ function Navbar({ children, background }) {
           ))
         }
         {Auth.loggedIn() ? (
-          <NavLink to="/" className="link" >
+          <NavLink to="/logout" className="link" onClick={logout}>
             <div className="icon"><FaLock /></div>
             <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Logout</div>
           </NavLink>

@@ -71,9 +71,9 @@ const resolvers = {
       const token = signToken(user);
       return { token, user }
     },
-    login: async (_parent, { username, password }) => {
-      const user = await User.findOne({username});
-      const correctPass = await user.correctPassword(password);
+    login: async (_parent, args) => {
+      const user = await User.findOne({username: args.username});
+      const correctPass = await user.correctPassword(args.password);
 
       if (!correctPass) {
         throw new AuthenticationError('Password is Incorrect!');

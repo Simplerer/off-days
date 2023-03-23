@@ -18,11 +18,9 @@ function Login() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log('Login Info',userFormData)
       const { data } = await login({
         variables: { ...userFormData },
       });
-      console.log("DATA",data)
 
       Auth.login(data.login.token);
       window.location.replace('/')

@@ -8,7 +8,7 @@ import Navbar from './components/NavBar';
 import MobileNav from './components/MobileNav';
 import pages from './pages';
 import Particle from './components/Particles';
-const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Login } = pages
+const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Login, Logout } = pages
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -89,6 +89,10 @@ function App() {
                   <Route
                     path='/login'
                     element={<Login />}
+                  />
+                  <Route
+                    path='/logout'
+                    element={<Logout />}
                   />
                   <Route
                     path='*'
