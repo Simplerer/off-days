@@ -6,9 +6,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/NavBar';
 import MobileNav from './components/MobileNav';
-import pages from './pages';
+import LoginTabs from './components/UserTabs';
 import Particle from './components/Particles';
-const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Login, Logout } = pages
+import pages from './pages';
+const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Logout } = pages
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -88,7 +89,7 @@ function App() {
                   />
                   <Route
                     path='/login'
-                    element={<Login />}
+                    element={<LoginTabs />}
                   />
                   <Route
                     path='/logout'

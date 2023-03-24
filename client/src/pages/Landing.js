@@ -26,7 +26,7 @@ function Landing() {
       setPages(!pages)
     }, 3000)
   }, [])
-
+  
   return (
     <main id="landing">
       <section id="welcome">

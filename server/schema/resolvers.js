@@ -18,7 +18,7 @@ const resolvers = {
       return await Post.find()
       .populate('author')
     },
-    seatGeekSearch: async () => {
+    seatGeekSearch: async (_parent, _args) => {
       const { data }  = await 
       axios.get('https://api.seatgeek.com/2/events?lat=35.5914&lon=-82.551', {
         mode: 'no-cors',
@@ -36,10 +36,10 @@ const resolvers = {
       })
       return data.response.holidays;
     },
-    breweries: async (_parent, _args) => {
+    breweries: async (_parent, args) => {
       const randIndex = Math.floor(Math.random()*6)
       const { data } = await 
-      axios.get(`https://api.openbrewerydb.org/breweries?by_city=asheville&page=${randIndex}&per_page=5`, {
+      axios.get(`https://api.openbrewerydb.org/breweries?by_city=${args.homeTown}&page=${randIndex}&per_page=5`, {
         mode: 'no-cors'
       });
       return data;

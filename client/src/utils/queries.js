@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_ME = gql`
-  query getMe {
+  query GetMe {
   getMe {
     _id
     username
@@ -84,8 +84,8 @@ export const HOLIDAYS = gql`
 `
 
 export const BREWERIES = gql`
-  query Breweries {
-  breweries {
+  query Breweries($homeTown: String!) {
+  breweries(homeTown: $homeTown) {
     id
     name
     street

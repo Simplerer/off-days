@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { useQuery, useMutation } from '@apollo/client';
-import { GET_ME } from '../../utils/queries';
-import { LOGIN_USER } from '../../utils/mutations';
 import { NavLink } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import './index.css'
@@ -57,11 +54,6 @@ function Navbar({ children, background }) {
       path: '/forum',
       name: 'Forum',
       icon: <FaGavel />
-    },
-    {
-      path: '/likes',
-      name: 'Likes',
-      icon: <FaRegThumbsUp />
     }
   ];
   return (
@@ -85,10 +77,16 @@ function Navbar({ children, background }) {
           ))
         }
         {Auth.loggedIn() ? (
+          <>
+          <NavLink to="/likes" className="link">
+            <div className="icon"><FaRegThumbsUp /></div>
+            <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Likes</div>
+          </NavLink>
           <NavLink to="/logout" className="link" onClick={logout}>
             <div className="icon"><FaLock /></div>
             <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Logout</div>
           </NavLink>
+          </>
         ) : (
           <NavLink to="/login" className="link" >
             <div className="icon"><FaLockOpen /></div>
