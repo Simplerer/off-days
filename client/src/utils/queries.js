@@ -84,7 +84,7 @@ export const HOLIDAYS = gql`
 `
 
 export const BREWERIES = gql`
-  query Breweries($homeTown: String!) {
+  query Breweries($homeTown: String) {
   breweries(homeTown: $homeTown) {
     id
     name

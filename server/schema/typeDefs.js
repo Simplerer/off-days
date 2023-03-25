@@ -113,7 +113,7 @@ const typeDefs = gql`
     #(city: String!)
     holidays: [Holiday]
     #(date: Int)
-    breweries(homeTown: String!): [Brewery]
+    breweries(homeTown: String): [Brewery]
     gaming: [Game]
     parks: [Parks]
   }

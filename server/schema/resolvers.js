@@ -37,12 +37,26 @@ const resolvers = {
       return data.response.holidays;
     },
     breweries: async (_parent, args) => {
+      console.log('City', args)
       const randIndex = Math.floor(Math.random()*6)
-      const { data } = await 
-      axios.get(`https://api.openbrewerydb.org/breweries?by_city=${args.homeTown}&page=${randIndex}&per_page=5`, {
-        mode: 'no-cors'
-      });
-      return data;
+      if (args.homeTown) {
+        const { data } = await
+        axios.get(`https://api.openbrewerydb.org/breweries?by_city=${args.homeTown}&page=${randIndex}&per_page=8`, {
+          mode: 'no-cors'
+        });
+        return data;
+      } else {
+        const { data } = await
+        axios.get(`https://api.openbrewerydb.org/breweries?by_city=Asheville&page=${randIndex}&per_page=8`, {
+          mode: 'no-cors'
+        });
+        return data;
+      }
+      // const { data } = await
+      //   axios.get(`https://api.openbrewerydb.org/breweries?by_city=Asheville&page=${randIndex}&per_page=8`, {
+      //     mode: 'no-cors'
+      //   });
+      //   return data;
     },
     gaming: async (_parent, _args) => {
       const { data } = await
@@ -83,7 +97,7 @@ const resolvers = {
       }
 
       const token = signToken(user);
-      return { user, token };
+      return { token, user };
     },
     addPost: async (_parent, args, context) => {
 

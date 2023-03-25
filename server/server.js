@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // context coming from auth -> token handling
   context: authMiddleware,
   formatError(error) {
     console.log(error);
