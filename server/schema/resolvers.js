@@ -37,7 +37,6 @@ const resolvers = {
       return data.response.holidays;
     },
     breweries: async (_parent, args) => {
-      console.log('City', args)
       const randIndex = Math.floor(Math.random()*6)
       if (args.homeTown) {
         const { data } = await
@@ -52,11 +51,6 @@ const resolvers = {
         });
         return data;
       }
-      // const { data } = await
-      //   axios.get(`https://api.openbrewerydb.org/breweries?by_city=Asheville&page=${randIndex}&per_page=8`, {
-      //     mode: 'no-cors'
-      //   });
-      //   return data;
     },
     gaming: async (_parent, _args) => {
       const { data } = await

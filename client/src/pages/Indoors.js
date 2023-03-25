@@ -7,7 +7,6 @@ function Indoors () {
   const { loading, data } = useQuery(GAMING);
 
   const games = data?.gaming || {};
-  console.log(games);
 
   if (loading) {
     return (
@@ -16,7 +15,7 @@ function Indoors () {
   }
 
   return(
-    <>
+    <main>
     <h1>Indoors</h1>
     {
       games.map((game, index) => (
@@ -29,7 +28,7 @@ function Indoors () {
       ))
 
     }
-    </>
+    </main>
   )
 };
 
