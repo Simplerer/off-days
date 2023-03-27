@@ -19,9 +19,9 @@ module.exports = {
     }
     
     return req;
-  },
-  signToken: function({ username, email, _id, homeTown }) {
-    const payload = { username, email, _id, homeTown};
+  },// ---------> Custom context, information handy in multiple fetches
+  signToken: function({ username, email, _id, homeTown, state }) {
+    const payload = { username, email, _id, homeTown, state};
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration })
   }
 }

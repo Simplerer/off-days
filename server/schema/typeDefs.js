@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     homeTown: String!
+    state: String
     posts: [Post]
     likes: [Likes]
   }
@@ -105,17 +106,22 @@ const typeDefs = gql`
     relatedParks: [Park]
   }
 
+  type Location {
+    lat: String
+    lon: String
+  }
+
   type Query {
     getMe: User
     getUsers: [User]
     getPosts: [Post]
-    seatGeekSearch: [SeatGeek]
-    #(city: String!)
+    seatGeekSearch(lat: String, lon: String): [SeatGeek]
     holidays: [Holiday]
     #(date: Int)
     breweries(homeTown: String): [Brewery]
     gaming: [Game]
     parks: [Parks]
+    getLatLon(homeTown: String): Location
   }
 
   type Mutation {
@@ -124,6 +130,7 @@ const typeDefs = gql`
       email: String!,
       password: String!
       homeTown: String!
+      state: String
     ): Auth
     login(username: String!, password: String!): Auth
     deleteUser: User

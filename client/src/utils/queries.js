@@ -50,8 +50,8 @@ export const GET_POSTS = gql`
 `
 
 export const SEAT_GEEK = gql`
-  query SeatGeekSearch {
-  seatGeekSearch {
+  query SeatGeekSearch($lat: String, $lon: String) {
+  seatGeekSearch(lat: $lat, lon: $lon) {
     id
     venue {
       name
@@ -122,6 +122,15 @@ export const PARKS = gql`
       fullName
       url
     }
+  }
+}
+`
+
+export const FETCHING = gql`
+query GetLatLon($homeTown: String) {
+  getLatLon(homeTown: $homeTown) {
+    lat
+    lon
   }
 }
 `

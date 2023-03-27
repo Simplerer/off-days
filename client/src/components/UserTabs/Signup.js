@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from "../../utils/mutations";
 import Auth from '../../utils/auth';
+import States from './StateOptions';
 
 function Signup() {
 
@@ -9,11 +10,13 @@ function Signup() {
     username: '',
     email: '',
     password: '',
-    homeTown: ''
+    homeTown: '',
+    state: '',
   });
   const [createUser, {error} ] = useMutation(CREATE_USER);
 
   const handleChange = (event) => {
+    console.log(event.target)
     const { name, value } = event.target;
     setuserFormData({
       ...userFormData,
@@ -88,6 +91,7 @@ function Signup() {
               onChange={handleChange}
             />
           </div>
+          <States userFormData={userFormData} handleChange={handleChange}/>
           <button
             className="formBtn" type="submit">
             Submit

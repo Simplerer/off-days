@@ -24,8 +24,8 @@ export const LOGIN_USER = gql`
 `
 
 export const CREATE_USER = gql`
-  mutation CreateUser($username: String!, $email: String!, $password: String!, $homeTown: String!) {
-  createUser(username: $username, email: $email, password: $password, homeTown: $homeTown) {
+  mutation CreateUser($username: String!, $email: String!, $password: String!, $homeTown: String!, $state: String) {
+  createUser(username: $username, email: $email, password: $password, homeTown: $homeTown, state: $state) {
     token
     user {
       username
