@@ -16,7 +16,6 @@ function Signup() {
   const [createUser, {error} ] = useMutation(CREATE_USER);
 
   const handleChange = (event) => {
-    console.log(event.target)
     const { name, value } = event.target;
     setuserFormData({
       ...userFormData,
@@ -32,6 +31,8 @@ function Signup() {
       });
       const token = data.createUser.token;
       Auth.login(token);
+      localStorage.setItem('town', userFormData.homeTown)
+      localStorage.setItem('state', userFormData.state)
 
     } catch (e) {
       console.error(e);

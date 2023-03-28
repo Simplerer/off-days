@@ -3,10 +3,10 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String!
+    username: String
     email: String!
     password: String!
-    homeTown: String!
+    homeTown: String
     state: String
     posts: [Post]
     likes: [Likes]
@@ -120,7 +120,7 @@ const typeDefs = gql`
     #(date: Int)
     breweries(homeTown: String): [Brewery]
     gaming: [Game]
-    parks: [Parks]
+    parks(state: String): [Parks]
     getLatLon(homeTown: String): Location
   }
 

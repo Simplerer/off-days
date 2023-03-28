@@ -107,8 +107,8 @@ export const GAMING = gql`
 `
 
 export const PARKS = gql`
-  query Parks {
-  parks {
+  query Parks($state: String) {
+  parks(state: $state) {
     id
     url
     title

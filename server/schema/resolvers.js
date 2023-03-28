@@ -20,47 +20,34 @@ const resolvers = {
     },
     getLatLon: async (_parent, args) => {
       const { data } = await
-          axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${args.homeTown}&limit=1&appid=226011e8e963e4a2251a03649b5adc44`, {
-            mode: 'no-cors'
-          })
-        return data[0];
+        axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${args.homeTown}&limit=1&appid=226011e8e963e4a2251a03649b5adc44`, {
+          mode: 'no-cors'
+        })
+      return data[0];
 
     },
     seatGeekSearch: async (_parent, args) => {
-      console.log( 'ARGS ', args)
-
-      // if (args.lat) {
-      //   const { data } = await
-      //       axios.get(`https://api.seatgeek.com/2/events?lat=${args.lat}&lon=${args.lon}`, {
-      //         mode: 'no-cors',
-      //         auth: {
-      //           "username": key,
-      //           "password": pword
-      //         }
-      //       })
-      //     return data.events;
-      // } else {
-      //   const { data } = await
-      //       axios.get('https://api.seatgeek.com/2/events?lat=35.5914&lon=-82.551', {
-      //         mode: 'no-cors',
-      //         auth: {
-      //           "username": key,
-      //           "password": pword
-      //         }
-      //       })
-      //     return data.events;
-      //   }   
-        
+      if (args.lat) {
         const { data } = await
-            axios.get('https://api.seatgeek.com/2/events?lat=35.5914&lon=-82.551', {
-              mode: 'no-cors',
-              auth: {
-                "username": key,
-                "password": pword
-              }
-            })
-          return data.events;
-
+          axios.get(`https://api.seatgeek.com/2/events?lat=${args.lat}&lon=${args.lon}`, {
+            mode: 'no-cors',
+            auth: {
+              "username": key,
+              "password": pword
+            }
+          })
+        return data.events;
+      } else {
+        const { data } = await
+          axios.get('https://api.seatgeek.com/2/events?lat=35.5914&lon=-82.551', {
+            mode: 'no-cors',
+            auth: {
+              "username": key,
+              "password": pword
+            }
+          })
+        return data.events;
+      }
     },
     holidays: async (_parent, _args) => {
       const { data } = await
@@ -70,20 +57,23 @@ const resolvers = {
       return data.response.holidays;
     },
     breweries: async (_parent, args) => {
-      const randIndex = Math.floor(Math.random() * 6)
+      const randIndex = Math.floor(Math.random() * 3)
+      let beers
       if (args.homeTown) {
         const { data } = await
           axios.get(`https://api.openbrewerydb.org/breweries?by_city=${args.homeTown}&page=${randIndex}&per_page=8`, {
             mode: 'no-cors'
           });
-        return data;
-      } else {
+        beers = data
+      }
+      if (beers.length == 0) {
         const { data } = await
           axios.get(`https://api.openbrewerydb.org/breweries?by_city=Asheville&page=${randIndex}&per_page=8`, {
             mode: 'no-cors'
           });
         return data;
       }
+      return beers
     },
     gaming: async (_parent, _args) => {
       const { data } = await
@@ -135,7 +125,6 @@ const resolvers = {
       return { token, user };
     },
     addPost: async (_parent, args, context) => {
-
       if (context.user) {
         const post = await Post.create({
           text: args.text, author: context.user._id

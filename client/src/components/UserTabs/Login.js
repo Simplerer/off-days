@@ -25,6 +25,12 @@ function Login() {
       });
 
       Auth.login(data.login.token);
+      const town = Auth.getProfile().data.homeTown;
+      localStorage.setItem('town', town)
+      
+      const state = Auth.getProfile().data.state;
+      localStorage.setItem('state', state)
+
       window.location.replace('/')
     } catch (e) {
       console.error(e);

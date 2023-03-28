@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { PARKS } from '../utils/queries';
-import Auth from '../utils/auth';
 import './pages.css';
 
 function Outdoors() {
+  const [stateCode, setStateCode] = useState('')
+  const [haveParks, setHaveParks] = useState(false)
 
-  const stateCode = Auth.getProfile().data.state
-  const { loading, data } = useQuery(PARKS, {
+  useEffect(() => {
+    setStateCode(localStorage.getItem('state'))
+  }, [])
+
+  if (!stateCode) {
+    setStateCode('NC')
+  }
+
+  const { data } = useQuery(PARKS, {
+    skip: !stateCode,
     variables: {
       state: stateCode
-    }
+    },
+    onCompleted: () => setHaveParks(true)
   });
   const parkInfo = data?.parks || {};
 
-  if (loading) {
+  if (!haveParks) {
     return (
       <h2>...Loading</h2>
     )

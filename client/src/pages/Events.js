@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { FETCHING, SEAT_GEEK } from '../utils/queries';
-import Auth from '../utils/auth';
 import './pages.css';
 
 function Events() {
-  const town = Auth.getProfile().data.homeTown;
   const [lat, setLat] = useState(null)
   const [lon, setLon] = useState(null)
+  const [info, setInfo] = useState(false)
+  const [town, setTown] = useState(null)
 
-  const { loading, error } = useQuery(FETCHING, {
+  useEffect(() => {
+    setTown(localStorage.getItem('town'))
+  }, [])
+  const { error } = useQuery(FETCHING, {
+    skip: !town,
     variables: {
       homeTown: town
     },
@@ -19,18 +23,24 @@ function Events() {
     }
   });
 
-  const { secondLoading, secondError, data } = useQuery(SEAT_GEEK, {
+  const { loading, secondError, data } = useQuery(SEAT_GEEK, {
     skip: !lat, // Skip the query if the data from the first query isn't available yet
     variables: {
       lat: lat,
       lon: lon
     }, // Use data from the first query in the variables
+    onCompleted: () => setInfo(!info)
   });
   const events = data?.seatGeekSearch || {};
-  console.log(events)
 
-  if (loading || secondLoading) return <h2>Loading...</h2>;
+  if (loading) return <h2>Loading...</h2>;
   if (error || secondError) return <p>Error :(</p>;
+
+  if (!info) {
+    return (
+      <h2>Loading...</h2>
+    )
+  }
 
 
   return (
