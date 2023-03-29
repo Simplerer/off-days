@@ -1,0 +1,22 @@
+:root {
+  --lightest: #C9E4CA;
+  --light: #87BBA2;
+  --mid: #55828B;
+  --dark: #3B6064;
+  --darkest: #364958;
+}
+
+.header {
+  background-color: var(--darkest);
+  display: flex;
+  justify-content: space-around;
+  color: var(--lightest);
+  min-width: 100vw;
+}
+
+.mobile-link {
+  text-decoration: none;
+  color: var( --lightest);
+  margin: 4% 0%;
+  padding: 8px;
+}

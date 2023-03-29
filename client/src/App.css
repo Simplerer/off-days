@@ -12,6 +12,7 @@
 
 body {
   background-color: #C9E4CA;
+  max-width: 100vw;
 }
 
 /* The on/off button for particles */
@@ -131,5 +132,26 @@ body {
 @media only screen and (max-width: 480px) {
   body {
     background-color: var(--lightest);
+  }
+
+  #chillPlz {
+    display: none;
+    position: fixed;
+    top: 0;
+    padding: 16px;
+    border-radius: 0%;
+    background-color: var(--darkest);
+    color: var(--lightest);
+    font-size: 18px;
+    box-shadow: 4px 4px 4px var(--mid);
+    cursor: pointer;
+  }
+
+  #welcome img {
+    max-width: 300px;
+  }
+
+  #pages {
+    font-size: 30px;
   }
 }

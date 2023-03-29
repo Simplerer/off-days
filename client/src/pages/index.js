@@ -4,12 +4,11 @@ import Landing from "./Landing";
 import Indoors from "./Indoors";
 import Events from "./Events";
 import Logout from './Logout';
-import Forum from './Forum'
 import Brews from "./Brews";
 import Likes from './Likes';
-import Home from './Home';
+import Forum from './Forum';
 
 const pages = { WrongPage, Outdoors, Landing, 
-  Indoors, Events, Brews, Home, Logout, Forum, Likes };
+  Indoors, Events, Brews, Logout, Forum, Likes };
 
 export default pages;

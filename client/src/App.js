@@ -61,9 +61,9 @@ function App() {
           Wild<br></br>Time
         </button>
         }
-        <Router>
-          {mobile
-            ?
+          <Router>
+            {mobile
+              ?
             <Navbar background={background}>
               <div>
                 <Routes>
@@ -138,6 +138,18 @@ function App() {
                   <Route
                     path='/forum'
                     element={<Forum />}
+                  />
+                  <Route
+                    path='/likes'
+                    element={<Likes />}
+                  />
+                  <Route
+                    path='/login'
+                    element={<LoginTabs />}
+                  />
+                  <Route
+                    path='/logout'
+                    element={<Logout />}
                   />
                   <Route
                     path='*'

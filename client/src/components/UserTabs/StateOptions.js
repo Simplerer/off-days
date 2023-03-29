@@ -1,9 +1,10 @@
 import React from "react";
+import './index.css';
 
 function StateOptions ({handleChange, userFormData}) {
   return(
     <div className="input-area">
-        <label htmlFor="state">State</label>
+        <label id="state-label" htmlFor="state">State</label>
         <select
           id="state"
           className="form-control"

@@ -78,7 +78,7 @@ function Landing() {
           <div
             style={{ display: pages ? 'block' : 'none' }}
             className="home-links" >
-            <NavLink to="/outside"
+            <NavLink to="/outdoors"
               style={{ color: "#364958" }} >
               <FaCampground />
             </NavLink>
@@ -88,7 +88,7 @@ function Landing() {
           <div
             style={{ display: pages ? 'block' : 'none' }}
             className="home-links" >
-            <NavLink to="/inside"
+            <NavLink to="/indoors"
               style={{ color: "#364958" }} >
               <FaGamepad />
             </NavLink>

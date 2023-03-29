@@ -46,7 +46,7 @@ function Login() {
     <main className="login">
       <h1>login</h1>
       <form onSubmit={handleFormSubmit}>
-        <fieldset>
+        <fieldset className="form-box">
           <div className="input-area">
             <label htmlFor="username">Username</label>
             <input
@@ -60,7 +60,7 @@ function Login() {
             />
           </div>
           <div className="input-area">
-            <label htmlFor="password">Password</label>
+            <label id="password-label" htmlFor="password">Password</label>
             <input
               id="password"
               className="form-control"

@@ -43,7 +43,7 @@ function Signup() {
     <main className="signup">
       <h1>Signup</h1>
       <form onSubmit={handleFormSubmit}>
-        <fieldset>
+        <fieldset  className="form-box">
           <div className="input-area">
             <label htmlFor="username">Username</label>
             <input
@@ -57,7 +57,7 @@ function Signup() {
             />
           </div>
           <div className="input-area">
-            <label htmlFor="email">Email</label>
+            <label id="email-label" htmlFor="email">Email</label>
             <input
               id="email"
               className="form-control"
@@ -69,7 +69,7 @@ function Signup() {
             />
           </div>
           <div className="input-area">
-            <label htmlFor="password">Password</label>
+            <label id="password-label" htmlFor="password">Password</label>
             <input
               id="password"
               className="form-control"
@@ -81,7 +81,7 @@ function Signup() {
             />
           </div>
           <div className="input-area">
-            <label htmlFor="homeTown">Home Town</label>
+            <label id="city-label" htmlFor="homeTown">City</label>
             <input
               id="homeTown"
               className="form-control"
