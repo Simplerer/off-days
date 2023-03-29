@@ -9,7 +9,7 @@ import MobileNav from './components/MobileNav';
 import LoginTabs from './components/UserTabs';
 import Particle from './components/Particles';
 import pages from './pages';
-const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Logout, Forum } = pages
+const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Logout, Forum, Likes } = pages
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -90,6 +90,10 @@ function App() {
                   <Route
                     path='/forum'
                     element={<Forum />}
+                  />
+                  <Route
+                    path='/likes'
+                    element={<Likes />}
                   />
                   <Route
                     path='/login'

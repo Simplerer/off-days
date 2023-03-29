@@ -1,0 +1,92 @@
+:root {
+  --lightest: #C9E4CA;
+  --light: #87BBA2;
+  --mid: #55828B;
+  --dark: #3B6064;
+  --darkest: #364958;
+}
+
+.page-titles {
+  text-align: center;
+}
+
+.likeBtn {
+  display: block;
+  padding: 4px;
+  margin: 2px;
+  color: var(--light);
+  font-size: 16px;
+  background-color: var(--darkest);
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px var(--mid);
+  max-height: 30px;
+  cursor: pointer;
+}
+
+.likeBtn:hover {
+  transform: scale(1.05);
+}
+
+.likeBtn:active {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+/* --------------------Events page ------------------------------------------  */
+
+.event-box {
+  margin: auto;
+  padding: 2%;
+  width: 30%;
+}
+
+.event-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-page img {
+  border-radius: 8px;
+  box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);;
+  transition: all 600ms;
+}
+
+.event-page img:hover {
+  transform: scale(1.05) rotate(4deg);
+}
+
+.event-page h2 {
+  text-align: center;
+  padding: 2rem;
+}
+
+.event-box-bottom {
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+  padding: 1%;
+  margin: 1%;
+}
+
+.event-box-bottom a {
+  text-decoration: none;
+  color: inherit;
+  padding: 6rem;
+}
+
+.event-box-bottom a:hover {
+  transform: scale(1.1);
+  color: var(--dark);
+}
+
+.venue-name {
+  text-align: center;
+}
+
+/* -----------------  Brew Page --------------------------------------- */
+
+.park-card img {
+  max-width: 200px;
+}

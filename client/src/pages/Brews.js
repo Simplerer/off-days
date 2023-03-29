@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { BREWERIES } from '../utils/queries';
+import { CREATE_LIKE } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function Brews () {
   const [town, setTown] = useState(null)
   const [loaded, setLoaded] = useState(false)
+  const [createLike] = useMutation(CREATE_LIKE);
 
   useEffect(() => {
     setTown(localStorage.getItem('town'))
@@ -29,6 +31,28 @@ function Brews () {
     )
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { name, value } = event.target;
+
+    if (Auth.loggedIn()) {
+      try {
+        const { data } = await createLike({
+          variables: {
+            event: name,
+            link: value
+          }
+        })
+        console.log('DATA', data)
+      } catch (error) {
+        console.error(error)
+      }
+    } else (
+      console.error('You need to be logged in to like!')
+    )
+  }
+
   return(
     <main>
       <h1>Brews</h1>
@@ -45,6 +69,12 @@ function Brews () {
         } 
           <h3>Located at</h3>
           <h3>{beer.street} {town}</h3>
+          <button
+              name={beer.name}
+              value={beer.website_url}
+              type="submit"
+              onClick={handleSubmit}
+            >Like This</button>
         </div>
       ))
     }

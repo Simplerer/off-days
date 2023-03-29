@@ -21,6 +21,7 @@ main {
 }
 
 .navbar {
+  position: fixed;
   background-color: var(--darkest);
   color: var(--lightest);
   height: 100vh;

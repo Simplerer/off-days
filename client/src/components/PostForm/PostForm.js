@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { useMutation } from '@apollo/client';
-import { ADD_POST } from "../../utils/mutations";
 
-function PostForm() {
+function PostForm({addPost, error}) {
 
   const [postText, setPostText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
-
-  const [addPost, { error }] = useMutation(ADD_POST);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();

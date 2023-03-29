@@ -14,7 +14,8 @@ const typeDefs = gql`
 
   type Likes {
     _id: ID
-    event: String!
+    event: String
+    link: String
   }
 
   type Post {
@@ -136,7 +137,7 @@ const typeDefs = gql`
     deleteUser: User
     addPost(text: String, userId: ID): Post
     createComment(text: String!, userId: ID!, postId: ID!): Comment
-    createLike(userId: ID, event: String!): User 
+    createLike(userId: ID, event: String, link: String): User 
   }
 `;
 

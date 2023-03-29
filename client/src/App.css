@@ -6,13 +6,17 @@
   --darkest: #364958;
 }
 
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
 body {
   background-color: #C9E4CA;
 }
 
 /* The on/off button for particles */
 #chillPlz {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   margin: 4rem;
@@ -34,11 +38,11 @@ body {
   transform: translateY(1px);
 }
 
- /* This is the whole page when not mobile */
+/* This is the whole page when not mobile */
 .content {
   display: flex;
   justify-content: center;
-  margin-top: 8%;
+  margin: auto;
 }
 
 
@@ -53,27 +57,58 @@ body {
 }
 
 #welcome img {
-  height: 450px;
-  width: 450px;
+  width: 430px;
 }
 
 #pages {
   display: flex;
   justify-content: space-around;
-  margin: 2%;
+  margin: 0% 2% 2% 0%;
   padding: 3%;
   font-size: 70px;
 }
 
 #pages div {
+  width: auto;
   padding: 2%;
   margin: 2%;
   background-color: var(--lightest);
   opacity: .7;
 }
 
+@media only screen and (max-width: 1200px) {
+  body {
+    background-color: var(--lightest);
+  }
+
+  #chillPlz {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+    padding: 16px;
+    background-color: var(--darkest);
+    color: var(--lightest);
+    font-size: 18px;
+    box-shadow: 4px 4px 4px var(--mid);
+    cursor: pointer;
+  }
+
+  #chillPlz:hover {
+    transform: scale(1.05);
+  }
+
+  #chillPlz:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+}
+
+
+
+
 @media only screen and (max-width: 480px) {
   body {
-    background-color: #C9E4CA;
+    background-color: var(--lightest);
   }
 }

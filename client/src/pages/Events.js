@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { FETCHING, SEAT_GEEK } from '../utils/queries';
-import './pages.css';
+import { CREATE_LIKE } from '../utils/mutations';
+import Auth from '../utils/auth';
+import './index.css';
 
 function Events() {
   const [lat, setLat] = useState(null)
   const [lon, setLon] = useState(null)
   const [info, setInfo] = useState(false)
   const [town, setTown] = useState(null)
+  const [createLike] = useMutation(CREATE_LIKE);
 
   useEffect(() => {
     setTown(localStorage.getItem('town'))
@@ -42,24 +45,58 @@ function Events() {
     )
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { name, value } = event.target;
+
+    if (Auth.loggedIn()) {
+      try {
+        const { data } = await createLike({
+          variables: {
+            event: name,
+            link: value
+          }
+        })
+        console.log('DATA', data)
+      } catch (error) {
+        console.error(error)
+      }
+    } else (
+      console.error('You need to be logged in to like!')
+    )
+  }
 
   return (
-    <main>
-      <h1>Events dude!!#!@$!@$</h1>
-      {
-        events.map((event, index) => (
-          <div key={index}>
-            <h2>{event.performers[0].name}</h2>
-            <a href={event.performers[0].url}>link</a>
-            <img src={event.performers[0].image} alt={`${event.performers[0].name}`} />
-            <h3>Performing at</h3>
-            <a href={event.venue.url}>
-              <h3>{event.venue.name}</h3>
-            </a>
-          </div>
-        ))
-      }
-    </main>
+    <div>
+      <h1 className="page-titles">Maybe catch a show?</h1>
+      <main className="event-page">
+        {
+          events.map((event, index) => (
+            <div key={index} className="event-box">
+              <h2>{event.performers[0].name}</h2>
+              <a href={event.performers[0].url}>
+                <img src={event.performers[0].image} alt={`${event.performers[0].name}`} />
+              </a>
+              <div className="event-box-bottom">
+                <div className="venue-name">
+                  <a href={event.venue.url}>
+                    <h3>{event.venue.name}</h3>
+                  </a>
+                </div>
+                <button
+                  name={event.performers[0].name}
+                  value={event.performers[0].url}
+                  type="submit"
+                  className="likeBtn"
+                  onClick={handleSubmit}
+                >Like</button>
+              </div>
+            </div>
+          ))
+        }
+      </main>
+    </div>
   )
 };
 

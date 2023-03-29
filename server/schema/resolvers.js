@@ -14,8 +14,9 @@ const resolvers = {
     getUsers: async () => {
       return await User.find();
     },
-    getPosts: async (_parent, args, context) => {
+    getPosts: async () => {
       return await Post.find()
+        .sort({ createdAt: -1 })
         .populate('author')
     },
     getLatLon: async (_parent, args) => {
@@ -135,6 +136,29 @@ const resolvers = {
         return post.populate('author')
       } else {
         throw new AuthenticationError('You must be logged in to Post!')
+      }
+    },
+    createLike: async (_parent, args, context) => {
+      console.log('Args', args)
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: {
+              likes:
+              {
+                event: args.event,
+                link: args.link
+              }
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        )
+      } else {
+        throw new AuthenticationError('Problem!!')
       }
     }
   }

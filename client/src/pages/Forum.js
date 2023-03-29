@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_POSTS } from '../utils/queries';
+import { ADD_POST } from "../utils/mutations";
 import Auth from '../utils/auth';
 import PostForm from "../components/PostForm/PostForm";
 
@@ -9,8 +10,15 @@ import PostForm from "../components/PostForm/PostForm";
 function Forum() {
 
   const { loading, data } = useQuery(GET_POSTS)
+  // Add new posts as they are submited
+  const [addPost, { error }] = useMutation(ADD_POST, {
+    refetchQueries: [{ query: GET_POSTS }]
+  });
+  
+  
 
   const posts = data?.getPosts || {};
+  console.log(posts)
 
   if (loading) {
     return (
@@ -24,7 +32,7 @@ function Forum() {
       {Auth.loggedIn()
         ? <div>
           <h2>Share some Ideas!</h2>
-          < PostForm />
+          < PostForm addPost={addPost} error={error} />
         </div>
         : <div>
           <h2>Login to share your own!</h2>
@@ -32,17 +40,22 @@ function Forum() {
             <button>Login</button>
           </NavLink>
         </div>}
-      <section>
-        {posts.map((post, index) => (
-          <article key={index}>
-            <div>
-              <h2>By {post.author.username} from {post.author.homeTown}</h2>
-              <h2>Posted:  {post.createdAt}</h2>
-            </div>
-            <p>{post.text}</p>
-          </article>
-        ))}
-      </section>
+      {posts
+        ?
+        <section>
+          {posts.map((post, index) => (
+            <article key={index}>
+              <div>
+                <h2>By {post.author.username} from {post.author.homeTown}</h2>
+                <h2>Posted:  {post.createdAt}</h2>
+              </div>
+              <p>{post.text}</p>
+            </article>
+          ))}
+        </section>
+        :
+        <h1>No One has anything yet!</h1>
+      }
     </main>
   )
 };

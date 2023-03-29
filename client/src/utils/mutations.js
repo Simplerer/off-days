@@ -75,14 +75,9 @@ export const CREATE_COMMENT = gql`
 `
 
 export const CREATE_LIKE = gql`
-  mutation CreateLike($event: String!, $userId: ID) {
-  createLike(event: $event, userId: $userId) {
+  mutation CreateLike($userId: ID, $event: String, $link: String) {
+  createLike(userId: $userId, event: $event, link: $link) {
     username
-    likes {
-      _id
-      event
-    }
-    homeTown
   }
 }
 `
