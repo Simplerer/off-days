@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { BREWERIES } from '../utils/queries';
 import { CREATE_LIKE } from '../utils/mutations';
+import './index.css';
 import Auth from '../utils/auth';
 
-function Brews () {
+function Brews() {
   const [town, setTown] = useState(null)
   const [loaded, setLoaded] = useState(false)
   const [createLike] = useMutation(CREATE_LIKE);
@@ -53,32 +54,49 @@ function Brews () {
     )
   }
 
-  return(
-    <main>
-      <h1>Brews</h1>
-      <h2>Hi {Auth.loggedIn() 
-      ? Auth.getProfile().data.username
-      : 'BrewHopper!'}</h2>
-      {
-      beers.map((beer, index) => (
-        <div key={index}>
-          <h2>{beer.name}</h2>
-          {beer.website_url 
-          ? <a href={beer.website_url}>link</a>
-          : <a href={`https://www.google.com/search?q=${town}+${beer.name}`}>Worth a Google!</a>
-        } 
-          <h3>Located at</h3>
-          <h3>{beer.street} {town}</h3>
-          <button
-              name={beer.name}
-              value={beer.website_url}
-              type="submit"
-              onClick={handleSubmit}
-            >Like This</button>
-        </div>
-      ))
-    }
-    </main>
+  return (
+    <div>
+      <h1 className="page-titles">Time for a Brewery Tour!</h1>
+      <main>
+        {
+          beers.map((beer, index) => (
+            <div key={index}>
+              <div className="brew-box">
+                <div className="brew-left">
+                  <div className="brew-title">
+                    <h2>{beer.name}</h2>
+                  {beer.website_url
+                    ? <a href={beer.website_url} target='_blank' >Check them out!</a>
+                    : <a href={`https://www.google.com/search?q=${town}+${beer.name}`} target='_blank'
+                    >Worth a Google!</a>
+                  }
+                  </div>
+                  <h3>Located at:</h3>
+                  <a href={`https://www.google.com/maps/search/?api=1&query=${(beer.name).replace(' ', '+')}`} target='_blank'>
+                    <h3>{beer.street} {town}</h3>
+                  </a>
+                </div>
+                <div className="brew-right">
+                  {Auth.loggedIn()
+                    ?
+                    <button
+                      name={beer.name}
+                      value={beer.website_url}
+                      type="submit"
+                      className="likeBtn"
+                      onClick={handleSubmit}
+                    >Like</button>
+                    :
+                    <></>
+                  }
+                </div>
+              </div>
+              <hr></hr>
+            </div>
+          ))
+        }
+      </main>
+    </div>
   )
 };
 

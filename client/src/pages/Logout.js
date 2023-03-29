@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import Flip from 'react-reveal/Flip';
 
 function WrongPage() {
 
@@ -11,10 +12,14 @@ function WrongPage() {
   },[])
 
   return (
-    <article>
-      <h1>Logged Out!</h1>
-      <h2>Get Your Day On!</h2>
-    </article>
+    <main className="logged-out">
+      <article>
+        <Flip>
+          <h1>Logged Out!</h1>
+          <h2>Get Your Day On!</h2>
+        </Flip>
+      </article>
+    </main>
   )
 };
 

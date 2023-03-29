@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './index.css';
 
 function PostForm({addPost, error}) {
 
@@ -31,9 +32,9 @@ function PostForm({addPost, error}) {
 
   return (
 
-    <div>
-      <h4>Let's keep it short and sweet</h4>
-      <p>
+    <div className="post-form">
+      <h4>~ Let's keep it short and sweet ~</h4>
+      <p id={characterCount <= 100 ? 'char-reg' : 'char-ex'}>
         Character Count: {characterCount}/100
         {error && <span>Something went wrong...</span>}
       </p>
@@ -50,7 +51,9 @@ function PostForm({addPost, error}) {
           ></textarea>
         </div>
         <div>
-          <button type="submit">
+          <button
+          className="postBtn"
+          type="submit">
             Post it!
           </button>
         </div>

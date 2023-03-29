@@ -8,7 +8,7 @@ import './index.css';
 function Outdoors() {
   const [stateCode, setStateCode] = useState('')
   const [haveParks, setHaveParks] = useState(false)
-  
+
   const [createLike] = useMutation(CREATE_LIKE);
 
   useEffect(() => {
@@ -57,29 +57,43 @@ function Outdoors() {
   }
 
   return (
-    <main>
-      <h1>Go on and Greet the Outdoors!</h1>
-      {
-        parkInfo.map((info, index) => (
-          <div className="park-card" key={index}>
-            <a href={info.url}>
-              <h2>{info.title}</h2>
-            </a>
-            <p>{info.shortDescription}</p>
-            <a href={info.relatedParks[0].url}>
-              <h2>{info.relatedParks[0].fullName}</h2>
-            </a>
-            <img src={info.images[0].url} alt={info.images[0].altText} />
-            <button
-              name={info.title}
-              value={info.url}
-              type="submit"
-              onClick={handleSubmit}
-            >Like This</button>
-          </div>
-        ))
-      }
-    </main>
+    <div>
+      <h1 className="page-titles">Go on and Greet the Outdoors!</h1>
+      <main>
+        {
+          parkInfo.map((info, index) => (
+            <div className="park-card" key={index}>
+              <a href={info.url} target="_blank">
+                <h2>{info.title}</h2>
+              </a>
+              <section className="park-bottom">
+                <div className="park-left">
+                  <p>{info.shortDescription}</p>
+                  <a href={info.relatedParks[0].url} target="_blank">
+                    <h3>{info.relatedParks[0].fullName}</h3>
+                  </a>
+                </div>
+                <div className="park-right">
+                  <img src={info.images[0].url} alt={info.images[0].altText} />
+                  {Auth.loggedIn()
+                    ?
+                    <button
+                      name={info.title}
+                      value={info.url}
+                      type="submit"
+                      className="likeBtn"
+                      onClick={handleSubmit}
+                    >Like</button>
+                    :
+                    <></>
+                  }
+                </div>
+              </section>
+            </div>
+          ))
+        }
+      </main>
+    </div>
   )
 }
 

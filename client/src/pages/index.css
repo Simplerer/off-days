@@ -6,8 +6,11 @@
   --darkest: #364958;
 }
 
+/*  -------------------All pages ----------------------------------------------- */
+
 .page-titles {
   text-align: center;
+  margin-top: 4%
 }
 
 .likeBtn {
@@ -49,7 +52,7 @@
 
 .event-page img {
   border-radius: 8px;
-  box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);;
+  box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);
   transition: all 600ms;
 }
 
@@ -71,14 +74,15 @@
 }
 
 .event-box-bottom a {
-  text-decoration: none;
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
   color: inherit;
+  transition: all 300ms;
   padding: 6rem;
 }
 
 .event-box-bottom a:hover {
-  transform: scale(1.1);
-  color: var(--dark);
+  color: var(--mid);
+  text-decoration: var(--darkest) underline;
 }
 
 .venue-name {
@@ -87,6 +91,209 @@
 
 /* -----------------  Brew Page --------------------------------------- */
 
+.brew-box {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 2%;
+  margin: 4%;
+  margin-bottom: 2%;
+}
+
+.brew-box a {
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  color: inherit;
+  transition: all 300ms;
+}
+
+.brew-box a:hover {
+  color: var(--mid);
+  text-decoration: var(--darkest) underline;
+}
+
+.brew-left {
+  margin: 4%;
+  margin-left: -2%;
+}
+
+.brew-title {
+  font-size: 150%;
+  margin-bottom: 3%;
+}
+
+.brew-right {
+  display: flex;
+  align-items: end;
+}
+
+/*   -----------------Outdoors page ----------------------------------- */
+
+.park-card {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin: auto;
+  max-width: 80%;
+  padding: 2%;
+}
+
+.park-card h2 {
+  margin-bottom: 4%;
+}
+
 .park-card img {
   max-width: 200px;
+  border-radius: 8px;
+  box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);
+  transition: all 600ms;
+  margin-bottom: 1%;
+}
+
+.park-card img:hover {
+  transform: scale(1.05) rotate(4deg);
+}
+
+.park-card a {
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  color: inherit;
+  transition: all 300ms;
+}
+
+.park-card a:hover {
+  color: var(--mid);
+  text-decoration: var(--darkest) underline;
+}
+
+.park-bottom {
+  display: flex;
+}
+
+.park-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 2% 0 2%;
+}
+
+.park-left p {
+  margin: 0 0 3% 0;
+}
+
+/*  ---------------- Indoors page ----------------------------- */
+
+.games-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4%;
+}
+
+.games-box {
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+}
+
+.games-box img {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);
+  transition: all 600ms;
+  margin-bottom: 1%;
+}
+
+.games-box img:hover {
+  transform: scale(1.05) rotate(4deg);
+}
+
+
+.games-left {
+  margin: 2%;
+}
+
+.games-right {
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  margin: 2%;
+}
+
+.games-right a {
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  color: inherit;
+  transition: all 300ms;
+  margin-bottom: 2%;
+}
+
+.games-right a:hover {
+  color: var(--mid);
+  text-decoration: var(--darkest) underline;
+}
+
+.games-right p {
+  margin: 2%;
+}
+
+/*  -------------- Forum page ---------------------------- */
+
+.forum-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2%;
+}
+
+.forum-top {
+  margin: 2%;
+  margin-bottom: 4%;
+  padding: 2%;
+}
+
+.forum-top h2 {
+  margin-bottom: 4%;
+}
+
+.forum-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  margin: 2%;
+  padding: 2%;
+}
+
+.post-card h3 {
+  color: var(--mid);
+}
+
+.post-content {
+  margin: 2% 0 2% 4%;
+  color: var(--darkest);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+/*  -------- Logout page -------------------------------- */
+
+.logged-out {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
+  font-size: 200%;
+}
+
+.logged-out h1 {
+  margin-bottom: 8%;
 }

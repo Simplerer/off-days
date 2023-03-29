@@ -1,0 +1,56 @@
+:root {
+  --lightest: #C9E4CA;
+  --light: #87BBA2;
+  --mid: #55828B;
+  --dark: #3B6064;
+  --darkest: #364958;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+h4 {
+  margin-bottom: 2%;
+}
+
+#postText {
+  width: 80%;
+  height: 100px;
+  font-size: 20px;
+  padding: 3%;
+  color: var(--darkest);
+  background-color: var(--light);
+}
+
+#char-reg {
+  font-weight: 600;
+  margin: 0 0 2% 0;
+}
+
+#char-ex {
+  color: rgb(235, 210, 69);
+}
+
+.postBtn {
+  display: block;
+  padding: 4px;
+  margin: 2px;
+  color: var(--light);
+  font-size: 16px;
+  background-color: var(--darkest);
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px var(--mid);
+  max-height: 30px;
+  cursor: pointer;
+}
+
+.postBtn:hover {
+  transform: scale(1.05);
+}
+
+.postBtn:active {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+}

@@ -75,22 +75,27 @@ function Events() {
           events.map((event, index) => (
             <div key={index} className="event-box">
               <h2>{event.performers[0].name}</h2>
-              <a href={event.performers[0].url}>
+              <a href={event.performers[0].url} target='_blank'>
                 <img src={event.performers[0].image} alt={`${event.performers[0].name}`} />
               </a>
               <div className="event-box-bottom">
                 <div className="venue-name">
-                  <a href={event.venue.url}>
+                  <a href={event.venue.url} target='_blank'>
                     <h3>{event.venue.name}</h3>
                   </a>
                 </div>
-                <button
-                  name={event.performers[0].name}
-                  value={event.performers[0].url}
-                  type="submit"
-                  className="likeBtn"
-                  onClick={handleSubmit}
-                >Like</button>
+                {Auth.loggedIn()
+                  ?
+                  <button
+                    name={event.performers[0].name}
+                    value={event.performers[0].url}
+                    type="submit"
+                    className="likeBtn"
+                    onClick={handleSubmit}
+                  >Like</button>
+                  :
+                  <></>
+                }
               </div>
             </div>
           ))
