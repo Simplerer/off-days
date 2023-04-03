@@ -8,10 +8,12 @@
 
 .header {
   background-color: var(--darkest);
+  position: fixed;
   display: flex;
   justify-content: space-around;
   color: var(--lightest);
-  min-width: 100vw;
+  width: 100%;
+  max-width: auto;
 }
 
 .mobile-link {
@@ -19,4 +21,12 @@
   color: var( --lightest);
   margin: 4% 0%;
   padding: 8px;
+}
+
+.mobile-navbar {
+  padding: 2%;
+}
+
+.mobile-view {
+  width: 100%;
 }

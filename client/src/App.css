@@ -6,6 +6,14 @@
   --darkest: #364958;
 }
 
+/* :root {
+  --lightest: #EAE2B7;
+  --light: #FCBF49;
+  --mid: #F77F00;
+  --dark: #D62828;
+  --darkest: #003049;
+} */
+
 * {
   font-family: 'Raleway', 'Roboto', sans-serif;
 }
@@ -130,21 +138,20 @@ body {
 }
 
 @media only screen and (max-width: 480px) {
+  * {
+    padding: 0%;
+    margin: 0%;
+    max-width: 100vw;
+  }
+
   body {
     background-color: var(--lightest);
+    max-width: 100%;
+    margin: 0%;
   }
 
   #chillPlz {
     display: none;
-    position: fixed;
-    top: 0;
-    padding: 16px;
-    border-radius: 0%;
-    background-color: var(--darkest);
-    color: var(--lightest);
-    font-size: 18px;
-    box-shadow: 4px 4px 4px var(--mid);
-    cursor: pointer;
   }
 
   #welcome img {
@@ -153,5 +160,96 @@ body {
 
   #pages {
     font-size: 30px;
+  }
+
+  #landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    text-align: center;
+    max-width: 300px;
+  }
+
+  .mobile-view {
+    max-width: 100%;
+  }
+
+  .header {
+    max-width: 100%;
+  }
+
+  #welcome img {
+    max-width: 250px;
+  }
+
+  #pages {
+    max-width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    /* justify-content: center;
+    align-items: center; */
+  }
+
+  #event {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #brews {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #outdoors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #indoors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #forum {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logged-out {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .likes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loading {
+    margin: auto;
+    text-align: center;
+  }
+
+  .tabBox {
+    max-width: 100%;
   }
 }

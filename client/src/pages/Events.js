@@ -68,19 +68,19 @@ function Events() {
   }
 
   return (
-    <div>
+    <div id="event">
       <h1 className="page-titles">Maybe catch a show?</h1>
       <main className="event-page">
         {
           events.map((event, index) => (
             <div key={index} className="event-box">
               <h2>{event.performers[0].name}</h2>
-              <a href={event.performers[0].url} target='_blank'>
+              <a href={event.performers[0].url} target='_blank' rel="noreferrer">
                 <img src={event.performers[0].image} alt={`${event.performers[0].name}`} />
               </a>
               <div className="event-box-bottom">
                 <div className="venue-name">
-                  <a href={event.venue.url} target='_blank'>
+                  <a href={event.venue.url} target='_blank' rel="noreferrer">
                     <h3>{event.venue.name}</h3>
                   </a>
                 </div>

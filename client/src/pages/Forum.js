@@ -27,7 +27,7 @@ function Forum() {
   }
 
   return (
-    <div>
+    <div id="forum">
       <h1 className="page-titles">Some Boredom Busters!</h1>
       <main className="forum-page">
         <div className="forum-top">

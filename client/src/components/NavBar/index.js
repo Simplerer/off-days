@@ -21,7 +21,7 @@ function Navbar({ children, background }) {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
-  } 
+  }
   const [isOpen, setIsOpen] = useState(false);
   const menuOpen = () => setIsOpen(!isOpen);
   const menuItems = [
@@ -68,24 +68,24 @@ function Navbar({ children, background }) {
           </div>
 
         </div>
-        {
-          menuItems.map((item, index) => (
-            <NavLink to={item.path} key={index} className="link" >
-              <div className="icon">{item.icon}</div>
-              <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">{item.name}</div>
-            </NavLink>
-          ))
-        }
         {Auth.loggedIn() ? (
           <>
-          <NavLink to="/likes" className="link">
-            <div className="icon"><FaRegThumbsUp /></div>
-            <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Likes</div>
-          </NavLink>
-          <NavLink to="/logout" className="link" onClick={logout}>
-            <div className="icon"><FaLock /></div>
-            <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Logout</div>
-          </NavLink>
+            {
+              menuItems.map((item, index) => (
+                <NavLink to={item.path} key={index} className="link" >
+                  <div className="icon">{item.icon}</div>
+                  <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">{item.name}</div>
+                </NavLink>
+              ))
+            }
+            <NavLink to="/likes" className="link">
+              <div className="icon"><FaRegThumbsUp /></div>
+              <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Likes</div>
+            </NavLink>
+            <NavLink to="/logout" className="link" onClick={logout}>
+              <div className="icon"><FaLock /></div>
+              <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Logout</div>
+            </NavLink>
           </>
         ) : (
           <NavLink to="/login" className="link" >

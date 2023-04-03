@@ -57,19 +57,19 @@ function Outdoors() {
   }
 
   return (
-    <div>
+    <div id="outdoors">
       <h1 className="page-titles">Go on and Greet the Outdoors!</h1>
       <main>
         {
           parkInfo.map((info, index) => (
             <div className="park-card" key={index}>
-              <a href={info.url} target="_blank">
+              <a href={info.url} target="_blank" rel="noreferrer">
                 <h2>{info.title}</h2>
               </a>
               <section className="park-bottom">
                 <div className="park-left">
                   <p>{info.shortDescription}</p>
-                  <a href={info.relatedParks[0].url} target="_blank">
+                  <a href={info.relatedParks[0].url} target="_blank" rel="noreferrer">
                     <h3>{info.relatedParks[0].fullName}</h3>
                   </a>
                 </div>

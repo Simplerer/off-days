@@ -14,7 +14,7 @@ function Indoors() {
 
   if (loading) {
     return (
-      <h2>...Loading</h2>
+      <h2 className="loading">...Loading</h2>
     )
   }
 
@@ -41,7 +41,7 @@ function Indoors() {
   }
 
   return (
-    <div>
+    <div id="indoors">
       <h1 className="page-titles">Since you are already on the computer...</h1>
       <main className="games-page">
         {
@@ -52,7 +52,7 @@ function Indoors() {
               </div>
               <div className="games-right">
 
-                <a href={game.game_url} target="_blank">
+                <a href={game.game_url} target="_blank" rel="noreferrer">
                   <h2>{game.title}</h2>
                 </a>
                 <p>{game.short_description}</p>

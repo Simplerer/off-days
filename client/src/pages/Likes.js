@@ -22,7 +22,7 @@ function Likes() {
   if (loading) {
     return (
 
-      <h2>loading...</h2>
+      <h2 className="loading">loading...</h2>
 
     )
   }
@@ -36,7 +36,7 @@ function Likes() {
         <div className="likes-box" key={index}>
             <div className="like">
               <h3>{like.event}</h3>
-              <a href={like.link} target="_blank">
+              <a href={like.link} target="_blank" rel="noreferrer">
                 <button className="likeBtn">Link</button>
               </a>
             </div>

@@ -1,0 +1,19 @@
+:root {
+  --lightest: #C9E4CA;
+  --light: #87BBA2;
+  --mid: #55828B;
+  --dark: #3B6064;
+  --darkest: #364958;
+}
+
+#footer {
+  background-color: var(--darkest);
+  color: var(--lightest);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-width: 100%;
+  display: flex;
+  padding: 1%;
+  justify-content: center;
+}

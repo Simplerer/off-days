@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/NavBar';
 import MobileNav from './components/MobileNav';
+import Footer from './components/Footer';
 import LoginTabs from './components/UserTabs';
 import Particle from './components/Particles';
 import pages from './pages';
@@ -113,7 +114,7 @@ function App() {
             :
             <div>
               <MobileNav />
-              <main>
+              <main className='mobile-view'>
                 <Routes>
                   <Route
                     path='/'
@@ -157,6 +158,7 @@ function App() {
                   />
                 </Routes>
               </main>
+              <Footer background={background} chillPlz={chillPlz} />
             </div>
           }
         </Router>

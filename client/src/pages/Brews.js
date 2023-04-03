@@ -55,7 +55,7 @@ function Brews() {
   }
 
   return (
-    <div>
+    <div id="brews">
       <h1 className="page-titles">Time for a Brewery Tour!</h1>
       <main>
         {
@@ -66,13 +66,13 @@ function Brews() {
                   <div className="brew-title">
                     <h2>{beer.name}</h2>
                   {beer.website_url
-                    ? <a href={beer.website_url} target='_blank' >Check them out!</a>
-                    : <a href={`https://www.google.com/search?q=${town}+${beer.name}`} target='_blank'
+                    ? <a href={beer.website_url} target='_blank' rel="noreferrer" >Check them out!</a>
+                    : <a href={`https://www.google.com/search?q=${town}+${beer.name}`} target='_blank' rel="noreferrer"
                     >Worth a Google!</a>
                   }
                   </div>
                   <h3>Located at:</h3>
-                  <a href={`https://www.google.com/maps/search/?api=1&query=${(beer.name).replace(' ', '+')}`} target='_blank'>
+                  <a href={`https://www.google.com/maps/search/?api=1&query=${(beer.name).replace(' ', '+')}`} target='_blank' rel="noreferrer" >
                     <h3>{beer.street} {town}</h3>
                   </a>
                 </div>

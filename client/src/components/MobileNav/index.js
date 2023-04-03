@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import './index.css';
 import {
-  FaThList,
   FaCampground,
   FaHome,
   FaGamepad,
@@ -29,7 +28,7 @@ function MobileNav () {
     <div className="header">
       <div
         className="mobile-navbar">
-        <NavLink to="/home" className="mobile-link" ><FaHome /></NavLink>
+        <NavLink to="/" className="mobile-link" ><FaHome /></NavLink>
         <NavLink to="/events" className="mobile-link" ><FaGuitar /></NavLink>
         <NavLink to="/brews" className="mobile-link" ><FaBeer /></NavLink>
         <NavLink to="/outdoors" className="mobile-link" ><FaCampground /></NavLink>
