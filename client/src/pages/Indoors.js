@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GAMING } from '../utils/queries';
 import { CREATE_LIKE } from '../utils/mutations';
