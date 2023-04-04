@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import LoginTabs from './components/UserTabs';
 import Particle from './components/Particles';
 import pages from './pages';
-const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Logout, Forum, Likes } = pages
+const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Forum, Likes } = pages
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -102,10 +102,6 @@ function App() {
                     element={<LoginTabs />}
                   />
                   <Route
-                    path='/logout'
-                    element={<Logout />}
-                  />
-                  <Route
                     path='*'
                     element={<WrongPage />}
                   />
@@ -148,10 +144,6 @@ function App() {
                   <Route
                     path='/login'
                     element={<LoginTabs />}
-                  />
-                  <Route
-                    path='/logout'
-                    element={<Logout />}
                   />
                   <Route
                     path='*'
