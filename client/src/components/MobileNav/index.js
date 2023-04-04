@@ -39,7 +39,7 @@ function MobileNav () {
           <NavLink to="/likes" className="mobile-link">
           <FaRegThumbsUp />
           </NavLink>
-          <NavLink to="/logout" className="mobile-link" onClick={logout}>
+          <NavLink to="/" className="mobile-link" onClick={logout}>
           <FaLock />
           </NavLink>
           </>

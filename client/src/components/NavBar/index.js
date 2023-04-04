@@ -82,7 +82,7 @@ function Navbar({ children, background }) {
               <div className="icon"><FaRegThumbsUp /></div>
               <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Likes</div>
             </NavLink>
-            <NavLink to="/logout" className="link" onClick={logout}>
+            <NavLink to="/" className="link" onClick={logout}>
               <div className="icon"><FaLock /></div>
               <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Logout</div>
             </NavLink>
