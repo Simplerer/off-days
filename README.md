@@ -1,8 +1,5 @@
 # Off Days!
 
-## Description
-Work in Progress
-
 ## Table of Contents
 
 - [Description](#description)
