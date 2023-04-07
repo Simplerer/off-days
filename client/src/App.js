@@ -32,13 +32,13 @@ const client = new ApolloClient({
 
 
 function App() {
-  const [mobile, setMobile] = useState(true)
+  const [mobile, setMobile] = useState(false)
   const listening = () => {
     if (window.innerWidth <= 480) {
-      setMobile(false)
+      setMobile(true)
     }
     if (window.innerWidth > 480) {
-      setMobile(true)
+      setMobile(false)
     }
 
   }
@@ -64,7 +64,7 @@ function App() {
         </button>
         }
           <Router>
-            {mobile
+            {!mobile
               ?
             <Navbar background={background}>
               <div>
