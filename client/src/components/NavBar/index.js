@@ -54,8 +54,31 @@ function Navbar({ children, background }) {
       path: '/forum',
       name: 'Forum',
       icon: <FaGavel />
+    },
+    {
+      path: '/likes',
+      name: 'Likes',
+      icon: <FaRegThumbsUp />
     }
   ];
+
+  const loginMenuItems = [
+    {
+      path: '/indoors',
+      name: 'Indoors',
+      icon: <FaGamepad />
+    },
+    {
+      path: '/forum',
+      name: 'Forum',
+      icon: <FaGavel />
+    },
+    {
+      path: '/login',
+      name: 'Login/Signup',
+      icon: <FaLockOpen />
+    }
+  ]
   return (
     <div className="container">
       <div
@@ -78,20 +101,22 @@ function Navbar({ children, background }) {
                 </NavLink>
               ))
             }
-            <NavLink to="/likes" className="link">
-              <div className="icon"><FaRegThumbsUp /></div>
-              <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Likes</div>
-            </NavLink>
             <NavLink to="/" className="link" onClick={logout}>
               <div className="icon"><FaLock /></div>
               <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Logout</div>
             </NavLink>
           </>
         ) : (
-          <NavLink to="/login" className="link" >
-            <div className="icon"><FaLockOpen /></div>
-            <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">Login/Signup</div>
-          </NavLink>
+          <>
+            {
+              loginMenuItems.map((item, index) => (
+                <NavLink to={item.path} key={index} className="link" >
+                  <div className="icon">{item.icon}</div>
+                  <div style={{ display: isOpen ? 'block' : 'none' }} className="link-text">{item.name}</div>
+                </NavLink>
+              ))
+            }
+          </>
         )}
       </div>
       <main className='content' style={{ backgroundColor: background ? '' : '#C9E4CA' }}>{children}</main>

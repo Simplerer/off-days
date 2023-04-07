@@ -1,10 +1,9 @@
 const { User, Post, Comment } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
+require('dotenv').config();
 
 const axios = require('axios');
-const key = "MzIyNzAwMjF8MTY3ODMzMzk3OS40OTEwMDMz";
-const pword = "54e3e807cb4e9acb864b73d3d0f3b8e5a0d5bc98f4d8243fcfaba7b69cf20d6c";
 
 const resolvers = {
   Query: {
@@ -33,8 +32,8 @@ const resolvers = {
           axios.get(`https://api.seatgeek.com/2/events?lat=${args.lat}&lon=${args.lon}`, {
             mode: 'no-cors',
             auth: {
-              "username": key,
-              "password": pword
+              "username": process.env.API_KEY,
+              "password": process.env.API_PWORD
             }
           })
         return data.events;
@@ -43,8 +42,8 @@ const resolvers = {
           axios.get('https://api.seatgeek.com/2/events?lat=35.5914&lon=-82.551', {
             mode: 'no-cors',
             auth: {
-              "username": key,
-              "password": pword
+              "username": process.env.API_KEY,
+              "password": process.env.API_PWORD
             }
           })
         return data.events;
