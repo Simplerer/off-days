@@ -25,6 +25,7 @@ export const GET_USERS = gql`
     _id
     username
     homeTown
+    state
     posts {
       text
       createdAt
@@ -44,6 +45,7 @@ export const GET_POSTS = gql`
     author {
       username
       homeTown
+      state
     }
     createdAt
   }

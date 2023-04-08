@@ -36,7 +36,7 @@ function Forum() {
             <h2>Share some Ideas!</h2>
             < PostForm addPost={addPost} error={error} />
           </div>
-          : <div>
+          : <div id="forum-login">
             <h2>Login to share your own!</h2>
             <NavLink to='/login'>
               <button className="likeBtn">Login</button>
@@ -49,9 +49,9 @@ function Forum() {
             {posts.map((post, index) => (
               <article key={index} className="post-card">
                 <div className="post-head">
-                  <h2>By {post.author.username} from {
-                  ((post.author.homeTown.charAt(0).toUpperCase()) + (post.author.homeTown.slice(1)))}</h2>
-                  <h3>Posted:  {post.createdAt}</h3>
+                  <h1>- {post.author.username} from {
+                  ((post.author.homeTown.charAt(0).toUpperCase()) + (post.author.homeTown.slice(1)))}, {post.author.state}</h1>
+                  <h2>Posted:  {post.createdAt}</h2>
                 </div>
                 <p className="post-content">{post.text}</p>
                 <hr></hr>

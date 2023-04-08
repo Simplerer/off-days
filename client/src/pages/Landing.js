@@ -120,10 +120,11 @@ function Landing() {
       <section style={{ display: info ? 'block' : 'none' }}
       className="landing-info">
         <div id="info-top">
-          <h2>Don't get <span className="info-words">stuck</span> doing the same <span className="info-words">old</span> stuff</h2>
+          <h2><span className="info-words">Stuck</span> doing the same <span className="info-words">old</span> stuff?</h2>
         </div>
         <div id="info-mid">
-          <h3>Signup and Off Days will find some things to do in your neck of the woods! If you don't want to have an account, go ahead an look through our forum for people's ideas. There is also some online games to check out for free play! Sign in and we can set you loose on the wood trails, or brew trails.</h3>
+          <h3>Find events unique to your location!</h3>
+          <h3>Signup or just see what is open for all!</h3>
         </div>
         <div id="info-bottom">
           <h2>Get your <span className="info-words">ideas</span> and get <span className="info-words">doing</span>.</h2>

@@ -22,11 +22,15 @@
 }
 
 .likeBtn {
-  display: block;
-  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
   margin: 2px;
   color: var(--light);
-  font-size: 16px;
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid var(--mid);
   background-color: var(--darkest);
   border-radius: 8px;
   box-shadow: 4px 4px 4px var(--mid);
@@ -200,16 +204,16 @@
 .games-box {
   display: flex;
   justify-content: space-between;
-  max-width: 80%;
+  width: 80%;
+  margin: 2% 0 2% 0;
 }
 
 .games-box img {
-  display: flex;
-  justify-content: space-between;
-  border-radius: 8px;
   box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);
   transition: all 600ms;
   margin-bottom: 1%;
+  margin-right: 3%;
+  border-radius: 4px;
 }
 
 .games-box img:hover {
@@ -226,8 +230,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: baseline;
   margin: 2%;
+  background-color: var(--lightest);
+}
+
+.games-right h2 {
+  text-align: start;
 }
 
 .games-right a {
@@ -240,10 +248,13 @@
 .games-right a:hover {
   color: var(--mid);
   text-decoration: var(--darkest) underline;
+  font-size: 101%;
 }
 
 .games-right p {
   margin: 2%;
+  font-size: 120%;
+  font-weight: 500;
 }
 
 /*  -------------- Forum page ---------------------------- */
@@ -253,6 +264,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 2%;
+  min-width: 90%;
 }
 
 .forum-top {
@@ -263,6 +275,13 @@
 
 .forum-top h2 {
   margin-bottom: 4%;
+}
+
+#forum-login {
+  display: flex;
+  justify-content: space-around;
+  margin: 2%;
+  padding: 2%;
 }
 
 .forum-bottom {
@@ -276,19 +295,29 @@
   display: flex;
   flex-direction: column;
   justify-content: baseline;
-  margin: 2%;
+  margin: 4%;
   padding: 2%;
+  background-color: var(--lightest);
+  font-size: 120%;
+  min-width: 100%;
 }
 
-.post-card h3 {
+.post-card h1 {
+  margin-bottom: 2%;
+  font-size: 200%;
+}
+
+.post-card h2 {
   color: var(--mid);
+  margin-left: 4%;
 }
 
 .post-content {
   margin: 2% 0 2% 4%;
   color: var(--darkest);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 24px;
+  padding: 2%;
 }
 
 /*  -------- Logout page -------------------------------- */

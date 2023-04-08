@@ -112,28 +112,41 @@ body {
 }
 
 .landing-info {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  padding: 2%;
+  /* display: ; */
+  position: fixed;
+  bottom: 1;
+  padding: 3%;
+  margin: 2%;
+  background-color: var(--lightest);
+  min-width: 40%;
 }
 
 #info-top {
   text-align: start;
+  padding: 2%;
 }
 
 #info-mid {
-  text-align: center;
+  /* text-align: center; */
   padding: 3%;
+  margin: 4%;
 }
 
 #info-bottom {
   text-align: end;
+  padding: 2%;
 }
 
-/* .info-words {
-  : ;
-} */
+.info-words {
+  transition: all ease-in 150ms;
+}
+
+.info-words:hover {
+  color: var(--dark);
+  font-size: 130%;
+  font-weight: 800;
+  cursor: crosshair;
+}
 
 @media only screen and (max-width: 1200px) {
   body {
