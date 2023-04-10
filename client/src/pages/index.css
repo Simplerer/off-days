@@ -4,6 +4,8 @@
   --mid: #55828B;
   --dark: #3B6064;
   --darkest: #364958;
+  /* --cards: #8fc6d1; */
+  --cards:linear-gradient(0.25turn, #8fc6d1, #53b383, #d6d9da);
 }
 
 /* :root {
@@ -25,11 +27,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  padding: 20px;
   margin: 2px;
-  color: var(--light);
+  color: var(--lightest);
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   border: 1px solid var(--mid);
   background-color: var(--darkest);
   border-radius: 8px;
@@ -206,6 +208,12 @@
   justify-content: space-between;
   width: 80%;
   margin: 2% 0 2% 0;
+  padding: 1%;
+  position: relative;
+  background: var(--cards);
+  border-radius: 8px;
+  box-shadow: 3px 3px var(--dark), -.5em 0 .4em var(--mid);
+
 }
 
 .games-box img {
@@ -231,7 +239,8 @@
   flex-direction: column;
   justify-content: center;
   margin: 2%;
-  background-color: var(--lightest);
+  padding: 2%;
+  color: var(--darkest);
 }
 
 .games-right h2 {
@@ -255,6 +264,13 @@
   margin: 2%;
   font-size: 120%;
   font-weight: 500;
+}
+
+#games-like {
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+  margin: 1%;
 }
 
 /*  -------------- Forum page ---------------------------- */

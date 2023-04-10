@@ -1,0 +1,69 @@
+.likes {
+  position: fixed;
+  left: 40%;
+  top: 40%;
+}
+
+.popup {
+  position: relative;
+}
+
+.liked-box {
+  opacity: .7;
+  background-color: rgb(173, 150, 119);
+  width: 400px;
+  height: 300px;
+  border: solid black;
+  border-radius: 8px;
+  /* transform: translate(0); */
+}
+
+.popup h1 {
+  position: absolute;
+  bottom: 132px;
+  left: 60px;
+}
+
+#clearBtn {
+  position: absolute;
+  bottom: 50px;
+  left: 150px;
+  opacity: .9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  margin: 2px;
+  color: var(--darkest);
+  text-align: center;
+  font-size: 22px;
+  border: 1px solid var(--mid);
+  background-color: var(--lightest);
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px var(--mid);
+  cursor: pointer;
+}
+
+/* .unpop {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1s ease, transform 1s ease
+}
+
+.pop {
+  opacity: 1;
+  transform: translate(0);
+} */
+
+
+/* 
+.likebox {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.likebox.on {
+  opacity: 1;
+  transform: translateY(0);
+} */

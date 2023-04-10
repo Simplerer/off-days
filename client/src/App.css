@@ -112,7 +112,6 @@ body {
 }
 
 .landing-info {
-  /* display: ; */
   position: fixed;
   bottom: 1;
   padding: 3%;
@@ -127,13 +126,13 @@ body {
 }
 
 #info-mid {
-  /* text-align: center; */
+  text-align: start;
   padding: 3%;
   margin: 4%;
 }
 
 #info-bottom {
-  text-align: end;
+  text-align: start;
   padding: 2%;
 }
 

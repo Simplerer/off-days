@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GAMING } from '../utils/queries';
 import { CREATE_LIKE } from '../utils/mutations';
 import './index.css';
 import Auth from '../utils/auth';
+import Liked from '../components/Liked/Liked.js';
 
 function Indoors() {
+
+  const [liked, setLiked ] = useState(false)
+  const clearIt = () => setLiked(!liked)
 
   const { loading, data } = useQuery(GAMING);
   const [createLike] = useMutation(CREATE_LIKE);
@@ -20,6 +24,7 @@ function Indoors() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLiked(true)
 
     const { name, value } = event.target;
 
@@ -64,6 +69,7 @@ function Indoors() {
                     type="submit"
                     className="likeBtn"
                     onClick={handleSubmit}
+                    id="games-like"
                   >Like</button>
                   :
                   <></>
@@ -73,6 +79,11 @@ function Indoors() {
           ))
 
         }
+       
+          <div>
+            <Liked liked={liked} clearIt={clearIt}/>
+          </div>
+        
       </main>
     </div>
   )
