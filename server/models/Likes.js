@@ -6,7 +6,9 @@ const likeSchema = new Schema(
     type: String,
     required: true
   },
-  link: { type: String }
+  link: { type: String },
+  type: { type: String },
+
 }
 )
 

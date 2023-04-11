@@ -44,7 +44,8 @@ function Outdoors() {
         const { data } = await createLike({
           variables: {
             event: name,
-            link: value
+            link: value,
+            type: 'outdoors'
           }
         })
         console.log('DATA', data)

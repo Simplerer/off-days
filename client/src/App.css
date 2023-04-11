@@ -6,14 +6,6 @@
   --darkest: #364958;
 }
 
-/* :root {
-  --lightest: #EAE2B7;
-  --light: #FCBF49;
-  --mid: #F77F00;
-  --dark: #D62828;
-  --darkest: #003049;
-} */
-
 * {
   font-family: 'Raleway', 'Roboto', sans-serif;
 }
@@ -25,7 +17,7 @@ body {
 
 /* The on/off button for particles */
 #chillPlz {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   margin: 4rem;
@@ -48,6 +40,7 @@ body {
 }
 
 /* This is the whole page when not mobile */
+
 .content {
   display: flex;
   justify-content: center;
@@ -69,10 +62,6 @@ body {
   margin: auto;
 }
 
-/* #welcome img {
-  width: 430px;
-} */
-
 #pages {
   display: flex;
   justify-content: space-around;
@@ -85,7 +74,6 @@ body {
   width: auto;
   padding: 4%;
   margin: 1%;
-  /* background-color: #c5e7c6; */
   opacity: .7;
   border-radius: 16px;
   z-index: 1;
@@ -101,7 +89,6 @@ body {
   z-index: -1;
   background-color: #8a928a;
   transform: scaleX(0);
-  /* transform-origin: left; */
   transition: transform 300ms ease-in-out;
   border-radius: 16px;
 }
@@ -121,18 +108,18 @@ body {
 }
 
 #info-top {
-  text-align: start;
+  text-align: center;
   padding: 2%;
 }
 
 #info-mid {
-  text-align: start;
+  text-align: center;
   padding: 3%;
   margin: 4%;
 }
 
 #info-bottom {
-  text-align: start;
+  text-align: center;
   padding: 2%;
 }
 

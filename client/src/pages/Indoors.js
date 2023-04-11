@@ -33,7 +33,8 @@ function Indoors() {
         const { data } = await createLike({
           variables: {
             event: name,
-            link: value
+            link: value,
+            type: 'indoors'
           }
         })
         console.log('DATA', data)

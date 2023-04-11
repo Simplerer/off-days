@@ -42,7 +42,8 @@ function Brews() {
         const { data } = await createLike({
           variables: {
             event: name,
-            link: value
+            link: value,
+            type: 'brews'
           }
         })
         console.log('DATA', data)

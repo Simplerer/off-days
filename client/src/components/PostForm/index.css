@@ -17,17 +17,20 @@
 .post-form {
   display: flex;
   flex-direction: column;
+  margin-top: 5%;
 }
 
-h4 {
-  margin-bottom: 2%;
+p {
+  margin: 1%;
+  font-size: 110%;
 }
 
 #postText {
   width: 80%;
   height: 100px;
-  font-size: 20px;
+  font-size: 24px;
   padding: 3%;
+  font-weight: 7700;
   color: var(--darkest);
   background-color: var(--light);
 }
@@ -42,11 +45,13 @@ h4 {
 }
 
 .postBtn {
-  display: block;
-  padding: 4px;
-  margin: 2px;
-  color: var(--light);
-  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 3%;
+  color: var(--lightest);
+  font-size: 22px;
   background-color: var(--darkest);
   border-radius: 8px;
   box-shadow: 4px 4px 4px var(--mid);

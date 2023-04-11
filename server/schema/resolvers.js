@@ -147,7 +147,8 @@ const resolvers = {
               likes:
               {
                 event: args.event,
-                link: args.link
+                link: args.link,
+                type: args.type
               }
             },
           },

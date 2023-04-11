@@ -18,6 +18,8 @@ function Likes() {
 
   const self = data?.getMe || {};
 
+  console.log(self.likes)
+
   if (loading) {
     return (
 
@@ -28,7 +30,7 @@ function Likes() {
 
 
   return (
-    <div className="likes">
+    <div>
       <h1 className="page-titles">Likes</h1>
       <main className="likes-page">
         {self
@@ -42,6 +44,40 @@ function Likes() {
                     <button className="likeBtn">Link</button>
                   </a>
                 </div>
+                <div className="icons">
+                  {like.type == "events" &&
+                    <NavLink
+                      to="/events"
+                      style={{ color: "#364958" }}
+                      className="like-links" >
+                      <FaGuitar />
+                    </NavLink>
+                  }
+                  {like.type == "brews" &&
+                    <NavLink
+                      to="/brews"
+                      style={{ color: "#364958" }}
+                      className="like-links" >
+                      <FaBeer />
+                    </NavLink>
+                  }
+                  {like.type == "outdoors" &&
+                    <NavLink
+                      to="/outdoors"
+                      style={{ color: "#364958" }}
+                      className="like-links" >
+                      <FaCampground />
+                    </NavLink>
+                  }
+                  {like.type == "indoors" &&
+                    <NavLink
+                      to="/indoors"
+                      style={{ color: "#364958" }}
+                      className="like-links" >
+                      <FaGamepad />
+                    </NavLink>
+                  }
+                </div>
                 <hr></hr>
               </div>
             ))}
@@ -50,60 +86,7 @@ function Likes() {
           <div id="no-likes">
             <h1>No Likes Yet!!</h1>
           </div>}
-
       </main>
-      <div className="likes-nav">
-        <section className="likes-icons">
-          <Flip>
-            <div
-              className="like-links" >
-              <NavLink
-                to="/events"
-                style={{ color: "#364958" }}
-                className="like-links" >
-                <FaGuitar />
-              </NavLink>
-            </div>
-          </Flip>
-          <Flip>
-            <div
-              className="like-links" >
-              <NavLink
-                to="/brews"
-                style={{ color: "#364958" }} >
-                <FaBeer />
-              </NavLink>
-            </div>
-          </Flip>
-          <Flip>
-            <div
-              className="like-links" >
-              <NavLink to="/outdoors"
-                style={{ color: "#364958" }} >
-                <FaCampground />
-              </NavLink>
-            </div>
-          </Flip>
-          <Flip>
-            <div
-              className="like-links" >
-              <NavLink to="/indoors"
-                style={{ color: "#364958" }} >
-                <FaGamepad />
-              </NavLink>
-            </div>
-          </Flip>
-          <Flip>
-            <div
-              className="like-links" >
-              <NavLink to="/forum"
-                style={{ color: "#364958" }} >
-                <FaGavel />
-              </NavLink>
-            </div>
-          </Flip>
-        </section>
-      </div>
     </div>
   )
 };

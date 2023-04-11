@@ -55,7 +55,8 @@ function Events() {
         const { data } = await createLike({
           variables: {
             event: name,
-            link: value
+            link: value,
+            type: 'events'
           }
         })
         console.log('DATA', data)

@@ -16,6 +16,7 @@ const typeDefs = gql`
     _id: ID
     event: String
     link: String
+    type: String
   }
 
   type Post {
@@ -137,7 +138,7 @@ const typeDefs = gql`
     deleteUser: User
     addPost(text: String, userId: ID): Post
     createComment(text: String!, userId: ID!, postId: ID!): Comment
-    createLike(userId: ID, event: String, link: String): User 
+    createLike(userId: ID, event: String, link: String, type: String): User 
   }
 `;
 

@@ -33,11 +33,13 @@ function PostForm({addPost, error}) {
   return (
 
     <div className="post-form">
-      <h4>~ Let's keep it short and sweet ~</h4>
+      <div id="post-form-count">
+      <p>~ Short and sweet ~</p>
       <p id={characterCount <= 100 ? 'char-reg' : 'char-ex'}>
         Character Count: {characterCount}/100
         {error && <span>Something went wrong...</span>}
       </p>
+      </div>
       <form onSubmit={handleFormSubmit}>
         <div>
           <textarea

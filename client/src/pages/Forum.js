@@ -11,7 +11,9 @@ import PostForm from "../components/PostForm/PostForm";
 function Forum() {
 
   const { loading, data } = useQuery(GET_POSTS)
+
   // Add new posts as they are submited
+
   const [addPost, { error }] = useMutation(ADD_POST, {
     refetchQueries: [{ query: GET_POSTS }]
   });
@@ -33,7 +35,6 @@ function Forum() {
         <div className="forum-top">
         {Auth.loggedIn()
           ? <div>
-            <h2>Share some Ideas!</h2>
             < PostForm addPost={addPost} error={error} />
           </div>
           : <div id="forum-login">
@@ -43,7 +44,7 @@ function Forum() {
             </NavLink>
           </div>}
           </div>
-        {posts
+        {posts[0]
           ?
           <section className="forum-bottom">
             {posts.map((post, index) => (
