@@ -4,8 +4,13 @@ import { FETCHING, SEAT_GEEK } from '../utils/queries';
 import { CREATE_LIKE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import './index.css';
+import Liked from '../components/Liked/Liked.js';
 
 function Events() {
+
+  const [liked, setLiked] = useState(false)
+  const clearIt = () => setLiked(!liked)
+
   const [lat, setLat] = useState(null)
   const [lon, setLon] = useState(null)
   const [info, setInfo] = useState(false)
@@ -47,6 +52,7 @@ function Events() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLiked(true);
 
     const { name, value } = event.target;
 
@@ -71,36 +77,40 @@ function Events() {
   return (
     <div id="event">
       <h1 className="page-titles">Maybe catch a show?</h1>
-      <main className="event-page">
+      <main className="page-content">
         {
           events.map((event, index) => (
             <div key={index} className="event-box">
-              <h2>{event.performers[0].name}</h2>
-              <a href={event.performers[0].url} target='_blank' rel="noreferrer">
+              <div className="event-left">
                 <img src={event.performers[0].image} alt={`${event.performers[0].name}`} />
-              </a>
-              <div className="event-box-bottom">
-                <div className="venue-name">
-                  <a href={event.venue.url} target='_blank' rel="noreferrer">
-                    <h3>{event.venue.name}</h3>
-                  </a>
-                </div>
-                {Auth.loggedIn()
-                  ?
-                  <button
-                    name={event.performers[0].name}
-                    value={event.performers[0].url}
-                    type="submit"
-                    className="likeBtn"
-                    onClick={handleSubmit}
-                  >Like</button>
-                  :
-                  <></>
-                }
+                <a href={event.venue.url} target='_blank' rel="noreferrer">
+                  <h3>{event.venue.name}</h3>
+                </a>
               </div>
+              <div className="event-right">
+                <a href={event.performers[0].url} target='_blank' rel="noreferrer">
+                  <h2>{event.performers[0].name}</h2>
+                </a>
+              </div>
+              {Auth.loggedIn()
+                ?
+                <button
+                  name={event.performers[0].name}
+                  value={event.performers[0].url}
+                  type="submit"
+                  className="likeBtn"
+                  onClick={handleSubmit}
+                  id="games-like"
+                >Like</button>
+                :
+                <></>
+              }
             </div>
           ))
         }
+        <div>
+          <Liked liked={liked} clearIt={clearIt} />
+        </div>
       </main>
     </div>
   )

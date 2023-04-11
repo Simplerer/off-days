@@ -4,8 +4,13 @@ import { BREWERIES } from '../utils/queries';
 import { CREATE_LIKE } from '../utils/mutations';
 import './index.css';
 import Auth from '../utils/auth';
+import Liked from '../components/Liked/Liked.js';
 
 function Brews() {
+
+  const [liked, setLiked] = useState(false)
+  const clearIt = () => setLiked(!liked)
+
   const [town, setTown] = useState(null)
   const [loaded, setLoaded] = useState(false)
   const [createLike] = useMutation(CREATE_LIKE);
@@ -34,6 +39,7 @@ function Brews() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLiked(true);
 
     const { name, value } = event.target;
 
@@ -65,12 +71,12 @@ function Brews() {
               <div className="brew-box">
                 <div className="brew-left">
                   <div className="brew-title">
-                    <h2>{beer.name}</h2>
-                  {beer.website_url
-                    ? <a href={beer.website_url} target='_blank' rel="noreferrer" >Check them out!</a>
-                    : <a href={`https://www.google.com/search?q=${town}+${beer.name}`} target='_blank' rel="noreferrer"
-                    >Worth a Google!</a>
-                  }
+                    
+                    {beer.website_url
+                      ? <a href={beer.website_url} target='_blank' rel="noreferrer" ><h2>{beer.name}</h2></a>
+                      : <a href={`https://www.google.com/search?q=${town}+${beer.name}`} target='_blank' rel="noreferrer"
+                      ><h2>{beer.name}</h2></a>
+                    }
                   </div>
                   <h3>Located at:</h3>
                   <a href={`https://www.google.com/maps/search/?api=1&query=${(beer.name).replace(' ', '+')}`} target='_blank' rel="noreferrer" >
@@ -96,6 +102,9 @@ function Brews() {
             </div>
           ))
         }
+        <div>
+          <Liked liked={liked} clearIt={clearIt} />
+        </div>
       </main>
     </div>
   )

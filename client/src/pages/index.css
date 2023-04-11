@@ -8,19 +8,18 @@
   --cards:linear-gradient(0.25turn, #8fc6d1, #53b383, #d6d9da);
 }
 
-/* :root {
-  --lightest: #EAE2B7;
-  --light: #FCBF49;
-  --mid: #F77F00;
-  --dark: #D62828;
-  --darkest: #003049;
-} */
-
 /*  -------------------All pages ----------------------------------------------- */
 
 .page-titles {
   text-align: center;
   margin-top: 4%
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4%;
 }
 
 .likeBtn {
@@ -51,12 +50,6 @@
 
 /* --------------------Events page ------------------------------------------  */
 
-.event-box {
-  margin: auto;
-  padding: 2%;
-  width: 30%;
-}
-
 .event-page {
   display: flex;
   flex-wrap: wrap;
@@ -64,43 +57,66 @@
   align-items: center;
 }
 
-.event-page img {
+.event-box {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  width: 80%;
+  padding: 2%;
+  margin: 2%;
+  margin-bottom: 2%;
+  background: var(--cards);
+  border-radius: 8px;
+  box-shadow: 2px 2px var(--dark), -.5em 0 .4em var(--mid);
+  transition: all ease-in-out 500ms;
+}
+
+/* .event-box:hover {
+transform: scale(1.04);
+} */
+
+.event-box img {
   border-radius: 8px;
   box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);
   transition: all 600ms;
 }
 
-.event-page img:hover {
+.event-box img:hover {
   transform: scale(1.05) rotate(4deg);
 }
 
-.event-page h2 {
+.event-box h2 {
   text-align: center;
-  padding: 2rem;
+  padding: 1% 5%;
+  font-size: 200%;
 }
 
-.event-box-bottom {
+.event-left {
   display: flex;
-  justify-content: space-between;
-  max-width: 80%;
-  padding: 1%;
-  margin: 1%;
+  flex-direction: column;
+  align-items: center;
 }
 
-.event-box-bottom a {
+.event-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  margin: 3%;
+}
+
+.event-box a {
   text-decoration: underline 0.15em rgba(0, 0, 0, 0);
   color: inherit;
   transition: all 300ms;
-  padding: 6rem;
+  padding: 1%;
+  margin: 3%;
 }
 
-.event-box-bottom a:hover {
+.event-box a:hover {
   color: var(--mid);
   text-decoration: var(--darkest) underline;
-}
-
-.venue-name {
-  text-align: center;
 }
 
 /* -----------------  Brew Page --------------------------------------- */
@@ -109,9 +125,17 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 2%;
+  padding: 4%;
   margin: 4%;
   margin-bottom: 2%;
+  background: var(--cards);
+  border-radius: 8px;
+  box-shadow: 2px 2px var(--dark), -.5em 0 .4em var(--mid);
+  transition: all ease-in-out 500ms;
+}
+
+.brew-box:hover {
+  transform: scale(1.04);
 }
 
 .brew-box a {
@@ -144,19 +168,27 @@
 
 .park-card {
   display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  margin: auto;
+  justify-content: space-between;
+  position: relative;
+  margin: 2%;
   max-width: 80%;
   padding: 2%;
+  background: var(--cards);
+  border-radius: 8px;
+  box-shadow: 3px 3px var(--dark), -.5em 0 .4em var(--mid);
 }
 
 .park-card h2 {
   margin-bottom: 4%;
 }
 
+.park-card h3 {
+  margin-top: 6%;
+}
+
 .park-card img {
   max-width: 200px;
+  max-height: 200px;
   border-radius: 8px;
   box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);
   transition: all 600ms;
@@ -178,10 +210,6 @@
   text-decoration: var(--darkest) underline;
 }
 
-.park-bottom {
-  display: flex;
-}
-
 .park-left {
   display: flex;
   flex-direction: column;
@@ -190,18 +218,16 @@
   margin: 0 2% 0 2%;
 }
 
-.park-left p {
-  margin: 0 0 3% 0;
+.park-right {
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
 }
 
 /*  ---------------- Indoors page ----------------------------- */
-
-.games-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 4%;
-}
 
 .games-box {
   display: flex;
@@ -240,7 +266,6 @@
   justify-content: center;
   margin: 2%;
   padding: 2%;
-  color: var(--darkest);
 }
 
 .games-right h2 {
@@ -366,12 +391,17 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  min-width: 600px;
+  min-width: 80%;
   margin: 4%;
   padding: 4%;
   background: var(--cards);
   border-radius: 8px;
   box-shadow: 2px 2px var(--dark), -.5em 0 .4em var(--mid);
+  transition: all ease-in-out 500ms;
+}
+
+.likes-box:hover {
+  transform: scale(1.08);
 }
 
 .like {
@@ -384,6 +414,7 @@
 
 .like h3 {
   margin-bottom: 6%;
+  font-size: 20px;
 }
 
 .icons {
@@ -391,17 +422,6 @@
   right: 10%;
   font-size: 70px;
 }
-
-/* .likes-nav {
-  margin: 3%;
-  padding: 3%;
-} */
-
-/* .likes-icons {
-  position: fixed;
-  right: 6%;
-  top: 30%;
-} */
 
 @media only screen and (max-width: 480px) {
   

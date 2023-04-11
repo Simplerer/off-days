@@ -24,7 +24,7 @@ function Indoors() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLiked(true)
+    setLiked(true);
 
     const { name, value } = event.target;
 
@@ -49,7 +49,7 @@ function Indoors() {
   return (
     <div id="indoors">
       <h1 className="page-titles">Since you are already on the computer...</h1>
-      <main className="games-page">
+      <main className="page-content">
         {
           games.map((game, index) => (
             <div key={index} className="games-box">

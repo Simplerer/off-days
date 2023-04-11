@@ -4,8 +4,13 @@ import { PARKS } from '../utils/queries';
 import { CREATE_LIKE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import './index.css';
+import Liked from '../components/Liked/Liked.js';
 
 function Outdoors() {
+
+  const [liked, setLiked] = useState(false)
+  const clearIt = () => setLiked(!liked)
+
   const [stateCode, setStateCode] = useState('')
   const [haveParks, setHaveParks] = useState(false)
 
@@ -36,6 +41,7 @@ function Outdoors() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLiked(true);
 
     const { name, value } = event.target;
 
@@ -60,39 +66,41 @@ function Outdoors() {
   return (
     <div id="outdoors">
       <h1 className="page-titles">Go on and Greet the Outdoors!</h1>
-      <main>
+      <main className="page-content">
         {
           parkInfo.map((info, index) => (
             <div className="park-card" key={index}>
-              <a href={info.url} target="_blank" rel="noreferrer">
-                <h2>{info.title}</h2>
-              </a>
-              <section className="park-bottom">
-                <div className="park-left">
-                  <p>{info.shortDescription}</p>
-                  <a href={info.relatedParks[0].url} target="_blank" rel="noreferrer">
-                    <h3>{info.relatedParks[0].fullName}</h3>
-                  </a>
-                </div>
-                <div className="park-right">
-                  <img src={info.images[0].url} alt={info.images[0].altText} />
-                  {Auth.loggedIn()
-                    ?
-                    <button
-                      name={info.title}
-                      value={info.url}
-                      type="submit"
-                      className="likeBtn"
-                      onClick={handleSubmit}
-                    >Like</button>
-                    :
-                    <></>
-                  }
-                </div>
-              </section>
+              <div className="park-left">
+                <img src={info.images[0].url} alt={info.images[0].altText} />
+                <a href={info.relatedParks[0].url} target="_blank" rel="noreferrer">
+                  <h3>{info.relatedParks[0].fullName}</h3>
+                </a>
+              </div>
+              <div className="park-right">
+                <a href={info.url} target="_blank" rel="noreferrer">
+                  <h2>{info.title}</h2>
+                </a>
+                <p>{info.shortDescription}</p>
+              </div>
+              {Auth.loggedIn()
+                ?
+                <button
+                  name={info.title}
+                  value={info.url}
+                  type="submit"
+                  className="likeBtn"
+                  onClick={handleSubmit}
+                  id="games-like"
+                >Like</button>
+                :
+                <></>
+              }
             </div>
           ))
         }
+        <div>
+          <Liked liked={liked} clearIt={clearIt} />
+        </div>
       </main>
     </div>
   )

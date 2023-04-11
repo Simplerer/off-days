@@ -39,16 +39,6 @@ function Landing() {
     }, 5000)
   }, [])
 
-  const styles = {
-    navLink: {
-      color: "#364958",
-    },
-    hoverLink: {
-      color: "#364958",
-      size: '105%',
-    }
-  }
-
   return (
     <main id="landing">
       <section id="welcome">

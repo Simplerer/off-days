@@ -13,6 +13,7 @@
 body {
   background-color: #C9E4CA;
   max-width: 100vw;
+  position: relative;
 }
 
 /* The on/off button for particles */
@@ -101,6 +102,7 @@ body {
 .landing-info {
   position: fixed;
   bottom: 1;
+  left: 25%;
   padding: 3%;
   margin: 2%;
   background-color: var(--lightest);
@@ -199,12 +201,13 @@ body {
     display: none;
   }
 
-  #welcome img {
+  /* #welcome img {
     max-width: 300px;
-  }
+  } */
 
   #pages {
     font-size: 30px;
+    align-items: center;
   }
 
   #landing {
@@ -214,6 +217,19 @@ body {
     align-items: center;
   }
 
+  .landing-info {
+    position: relative;
+    margin: auto;
+    padding: 3%;
+    background-color: var(--lightest);
+    width: inherit;
+  }
+
+  #info-top, #info-mid, #info-bottom {
+    text-align: center;
+    padding: 2%;
+  }
+
   h1 {
     text-align: center;
     max-width: 300px;
@@ -221,6 +237,10 @@ body {
 
   .mobile-view {
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .header {
