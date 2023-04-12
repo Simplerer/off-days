@@ -114,6 +114,13 @@
   text-decoration: var(--darkest) underline;
 }
 
+#event-like { 
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+  margin: 1%;
+}
+
 /* -----------------  Brew Page --------------------------------------- */
 
 .brew-box {
@@ -358,12 +365,18 @@
 
 /*  ---------Likes page -------------------------------------- */
 
+#like-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
 .likes-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 2%;
-  min-width: 100%;
 }
 
 .likes-box {
@@ -371,7 +384,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  min-width: 80%;
+  width: 75%;
   margin: 4%;
   padding: 4%;
   background: var(--cards);
@@ -403,12 +416,34 @@
   font-size: 70px;
 }
 
+@media only screen and (max-width: 980px) {
+
+  .brew-box {
+    max-width: 80%;
+    margin-left: 6%;
+  }
+
+  .likes-box {
+    min-width: inherit;
+    margin-left: 8%;
+    width: 70%;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   
   .event-box {
-    /* margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
     padding: 2%;
-    width: 100vw; */
+    padding-bottom: 12%;
+    margin-bottom: 4%;
+  }
+
+  #event-like { 
+    right: 37%;
+    bottom: 4px;
+    margin: 1%;
   }
 
   .event-box img {
@@ -465,5 +500,11 @@
   .icons {
     font-size: 50px;
     bottom: 10%;
+  }
+
+  .likes-box {
+    min-width: none;
+    width: 150px;
+    margin: 3%;
   }
 }

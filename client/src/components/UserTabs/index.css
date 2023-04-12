@@ -112,7 +112,14 @@
 }
 
 @media only screen and (max-width: 480px) {
+  .user-handle {
+    margin-top: 15%;
+  }
+  
   .tabBox {
-    max-width: 100%;
+    min-width: inherit;
+    min-height: inherit;
+    width: 360px;
+    height: 360px;
   }
 }

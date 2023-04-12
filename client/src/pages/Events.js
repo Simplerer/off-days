@@ -100,7 +100,7 @@ function Events() {
                   type="submit"
                   className="likeBtn"
                   onClick={handleSubmit}
-                  id="games-like"
+                  id="event-like"
                 >Like</button>
                 :
                 <></>

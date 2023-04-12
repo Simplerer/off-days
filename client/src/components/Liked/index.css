@@ -45,10 +45,25 @@
 }
 
 @media only screen and (max-width: 480px) {
-  /* .likes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } */
+
+  .liked-box {
+    width: 200px;
+    height: 150px;
+  }
+
+  .likes {
+    left: 25%;
+  }
+
+  .popup h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  #clearBtn {
+    padding: 8px;
+    font-size: 18px;
+    left: 17%;
+    bottom: 13%;
+  }
 }
