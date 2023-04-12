@@ -117,7 +117,7 @@ function Landing() {
           <h3>Signup or just see what is open for all!</h3>
         </div>
         <div id="info-bottom">
-          <h2>Get your <span className="info-words">ideas</span> and get <span className="info-words">doing</span>.</h2>
+          <h2>Get your <span className="info-words">ideas</span> and get <span className="info-words">Doing</span>.</h2>
         </div>
       </section>
       </Fade>

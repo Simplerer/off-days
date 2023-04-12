@@ -4,7 +4,6 @@
   --mid: #55828B;
   --dark: #3B6064;
   --darkest: #364958;
-  /* --cards: #8fc6d1; */
   --cards:linear-gradient(0.25turn, #8fc6d1, #53b383, #d6d9da);
 }
 
@@ -50,10 +49,10 @@
 
 /* --------------------Events page ------------------------------------------  */
 
-.event-page {
+#event {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -70,10 +69,6 @@
   box-shadow: 2px 2px var(--dark), -.5em 0 .4em var(--mid);
   transition: all ease-in-out 500ms;
 }
-
-/* .event-box:hover {
-transform: scale(1.04);
-} */
 
 .event-box img {
   border-radius: 8px;
@@ -361,21 +356,6 @@ transform: scale(1.04);
   padding: 2%;
 }
 
-/*  -------- Logout page -------------------------------- */
-
-.logged-out {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40%;
-  font-size: 200%;
-}
-
-.logged-out h1 {
-  margin-bottom: 8%;
-}
-
 /*  ---------Likes page -------------------------------------- */
 
 .likes-page {
@@ -426,31 +406,21 @@ transform: scale(1.04);
 @media only screen and (max-width: 480px) {
   
   .event-box {
-    margin: auto;
+    /* margin: auto;
     padding: 2%;
-    width: 100vw;
-  }
-  
-  .event-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .event-page img {
-    max-width: 200px;
+    width: 100vw; */
   }
 
-  .park-bottom {
+  .event-box img {
+    max-width: 80%;
+  }
+
+  .park-card {
     display: flex;
     flex-direction: column;
+    position: relative;
     margin: 2%;
-  }
-
-  .park-card img {
-    margin-bottom: 1%;
-    margin-top: 2%;
+    max-width: 80%;
   }
 
   .games-box {
@@ -459,10 +429,41 @@ transform: scale(1.04);
     max-width: 80%;
   }
 
-  .games-box img {
+  .games-box img, .park-card img {
+    max-width: 60%;
+    box-shadow: 2px 2px var(--dark), -.5em 0 .4em var(--mid);
+  }
+
+  #games-like {
+    position: absolute;
+    right: 4px;
+    top: 40px;
+  }
+
+  #indoors, #outdoors, #brews, #event, #forum, #like-mobile {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    max-width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18%;
+    margin-bottom: 20%;
+  }
+
+  #forum-login {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .post-card {
+    text-align: center;
+    margin: 2%;
+    padding: 2%;
+    font-size: 100%;
+    min-width: 80%;
+  }
+
+  .icons {
+    font-size: 50px;
+    bottom: 10%;
   }
 }

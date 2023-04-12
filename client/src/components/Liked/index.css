@@ -44,26 +44,11 @@
   cursor: pointer;
 }
 
-/* .unpop {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 1s ease, transform 1s ease
+@media only screen and (max-width: 480px) {
+  /* .likes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
 }
-
-.pop {
-  opacity: 1;
-  transform: translate(0);
-} */
-
-
-/* 
-.likebox {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.likebox.on {
-  opacity: 1;
-  transform: translateY(0);
-} */

@@ -17,6 +17,7 @@ body {
 }
 
 /* The on/off button for particles */
+
 #chillPlz {
   position: absolute;
   top: 0;
@@ -40,14 +41,7 @@ body {
   transform: translateY(1px);
 }
 
-/* This is the whole page when not mobile */
-
-.content {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-}
-
+/* Landing/Home Page */
 
 #welcome {
   display: flex;
@@ -136,185 +130,64 @@ body {
   cursor: crosshair;
 }
 
-@media only screen and (max-width: 1200px) {
-  body {
-    background-color: var(--lightest);
-  }
-
+@media only screen and (max-width: 768px) {
   #chillPlz {
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: 2rem;
-    padding: 16px;
-    background-color: var(--darkest);
-    color: var(--lightest);
-    font-size: 18px;
-    box-shadow: 4px 4px 4px var(--mid);
-    cursor: pointer;
+    margin: 1%;
+    border-radius: 8px;
   }
 
-  #chillPlz:hover {
-    transform: scale(1.05);
+  #pages {
+    flex-wrap: wrap;
+    justify-content: center;
   }
-
-  #chillPlz:active {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-}
-
-@media only screen and (max-width: 980px) {
-  body {
-    background-color: var(--lightest);
-  }
-
-  #chillPlz {
-    position: block;
-    top: 0;
-    right: 0;
-    margin: auto;
-    padding: 16px;
-    background-color: var(--darkest);
-    color: var(--lightest);
-    font-size: 18px;
-    box-shadow: 4px 4px 4px var(--mid);
-    cursor: pointer;
-  }
-
 }
 
 @media only screen and (max-width: 480px) {
   * {
     padding: 0%;
     margin: 0%;
-    max-width: 100vw;
   }
-
-  body {
-    background-color: var(--lightest);
-    max-width: 100%;
-    margin: 0%;
-  }
-
+  
   #chillPlz {
     display: none;
   }
-
-  /* #welcome img {
-    max-width: 300px;
-  } */
-
-  #pages {
-    font-size: 30px;
-    align-items: center;
-  }
-
+  
   #landing {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 15%;
   }
-
-  .landing-info {
-    position: relative;
-    margin: auto;
-    padding: 3%;
-    background-color: var(--lightest);
-    width: inherit;
-  }
-
-  #info-top, #info-mid, #info-bottom {
-    text-align: center;
-    padding: 2%;
-  }
-
-  h1 {
+  
+  #welcome h1 {
     text-align: center;
     max-width: 300px;
   }
-
-  .mobile-view {
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .header {
-    max-width: 100%;
-  }
-
+  
   #welcome img {
     max-width: 250px;
   }
 
   #pages {
-    max-width: fit-content;
-    display: flex;
-    flex-wrap: wrap;
-    /* flex-direction: column; */
-    /* justify-content: center;
-    align-items: center; */
-  }
-
-  #event {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    font-size: 40px;
     align-items: center;
   }
 
-  #brews {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 
-  #outdoors {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #indoors {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #forum {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logged-out {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .likes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .landing-info {
+    position: inherit;
+    margin: auto;
+    padding: 2%;
+    background-color: var(--lightest);
+    max-width: 200px;
   }
 
   .loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     margin: auto;
     text-align: center;
-  }
-
-  .tabBox {
-    max-width: 100%;
   }
 }

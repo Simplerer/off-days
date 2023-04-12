@@ -7,13 +7,20 @@
 }
 
 #footer {
-  background-color: var(--darkest);
-  color: var(--lightest);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  min-width: 100%;
-  display: flex;
-  padding: 1%;
-  justify-content: center;
+  display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  #footer {
+    background-color: var(--darkest);
+    color: var(--lightest);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    padding: 1%;
+    justify-content: center;
+    border-top: #87BBA2 thick double;
+  }
 }

@@ -2,13 +2,11 @@ import React from "react";
 import { useQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { GET_ME } from '../utils/queries';
-import Flip from 'react-reveal/Flip';
 import {
   FaCampground,
   FaGamepad,
   FaGuitar,
-  FaBeer,
-  FaGavel
+  FaBeer
 } from "react-icons/fa";
 import './index.css';
 
@@ -30,7 +28,7 @@ function Likes() {
 
 
   return (
-    <div>
+    <div id="like-mobile">
       <h1 className="page-titles">Likes</h1>
       <main className="likes-page">
         {self
@@ -45,7 +43,7 @@ function Likes() {
                   </a>
                 </div>
                 <div className="icons">
-                  {like.type == "events" &&
+                  {like.type === "events" &&
                     <NavLink
                       to="/events"
                       style={{ color: "#364958" }}
@@ -53,7 +51,7 @@ function Likes() {
                       <FaGuitar />
                     </NavLink>
                   }
-                  {like.type == "brews" &&
+                  {like.type === "brews" &&
                     <NavLink
                       to="/brews"
                       style={{ color: "#364958" }}
@@ -61,7 +59,7 @@ function Likes() {
                       <FaBeer />
                     </NavLink>
                   }
-                  {like.type == "outdoors" &&
+                  {like.type === "outdoors" &&
                     <NavLink
                       to="/outdoors"
                       style={{ color: "#364958" }}
@@ -69,7 +67,7 @@ function Likes() {
                       <FaCampground />
                     </NavLink>
                   }
-                  {like.type == "indoors" &&
+                  {like.type === "indoors" &&
                     <NavLink
                       to="/indoors"
                       style={{ color: "#364958" }}

@@ -6,14 +6,6 @@
   --darkest: #364958;
 }
 
-/* :root {
-  --lightest: #EAE2B7;
-  --light: #FCBF49;
-  --mid: #F77F00;
-  --dark: #D62828;
-  --darkest: #003049;
-} */
-
 .user-handle {
   display: flex;
   margin: auto;
@@ -117,4 +109,10 @@
 .formBtn:active {
   -webkit-transform: translateY(1px);
   transform: translateY(1px);
+}
+
+@media only screen and (max-width: 480px) {
+  .tabBox {
+    max-width: 100%;
+  }
 }

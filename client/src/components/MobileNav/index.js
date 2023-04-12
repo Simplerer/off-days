@@ -16,32 +16,44 @@ import {
 
 
 
-function MobileNav () {
+function MobileNav() {
 
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
-  } 
-  
+  }
+
 
   return (
     <div className="header">
       <div
         className="mobile-navbar">
-        <NavLink to="/" className="mobile-link" ><FaHome /></NavLink>
-        <NavLink to="/events" className="mobile-link" ><FaGuitar /></NavLink>
-        <NavLink to="/brews" className="mobile-link" ><FaBeer /></NavLink>
-        <NavLink to="/outdoors" className="mobile-link" ><FaCampground /></NavLink>
-        <NavLink to="/indoors" className="mobile-link" ><FaGamepad /></NavLink>
-        <NavLink to="/forum" className="mobile-link" ><FaGavel /></NavLink>
+        <NavLink to="/indoors" className="mobile-link" >
+          <FaGamepad />
+        </NavLink>
+        <NavLink to="/forum" className="mobile-link" >
+          <FaGavel />
+        </NavLink>
         {Auth.loggedIn() ? (
           <>
-          <NavLink to="/likes" className="mobile-link">
-          <FaRegThumbsUp />
-          </NavLink>
-          <NavLink to="/" className="mobile-link" onClick={logout}>
-          <FaLock />
-          </NavLink>
+            <NavLink to="/" className="mobile-link" >
+              <FaHome />
+            </NavLink>
+            <NavLink to="/events" className="mobile-link" >
+              <FaGuitar />
+            </NavLink>
+            <NavLink to="/brews" className="mobile-link" >
+              <FaBeer />
+            </NavLink>
+            <NavLink to="/outdoors" className="mobile-link" >
+              <FaCampground />
+            </NavLink>
+            <NavLink to="/likes" className="mobile-link">
+              <FaRegThumbsUp />
+            </NavLink>
+            <NavLink to="/" className="mobile-link" onClick={logout}>
+              <FaLock />
+            </NavLink>
           </>
         ) : (
           <NavLink to="/login" className="mobile-link" >
@@ -50,7 +62,7 @@ function MobileNav () {
         )}
       </div>
     </div>
-  ) 
+  )
 
 };
 

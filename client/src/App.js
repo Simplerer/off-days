@@ -27,22 +27,11 @@ const authLink = setContext((_, { headers }) => {
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache()
-  
+
 })
 
 
 function App() {
-  const [mobile, setMobile] = useState(false)
-  const listening = () => {
-    if (window.innerWidth <= 480) {
-      setMobile(true)
-    }
-    if (window.innerWidth > 480) {
-      setMobile(false)
-    }
-
-  }
-  window.addEventListener('resize', listening)
 
   const [background, setBackground] = useState(false);
   const chillPlz = () => setBackground(!background);
@@ -53,107 +42,61 @@ function App() {
         <Particle />
       }
       <ApolloProvider client={client}>
-        {background 
-        ?
-        <button id='chillPlz' onClick={chillPlz}>
-          Chill<br></br>Time
-        </button>
-        :
-        <button id='chillPlz' onClick={chillPlz}>
-          Wild<br></br>Time
-        </button>
+        {background
+          ?
+          <button id='chillPlz' onClick={chillPlz}>
+            Chill<br></br>Time
+          </button>
+          :
+          <button id='chillPlz' onClick={chillPlz}>
+            Wild<br></br>Time
+          </button>
         }
-          <Router>
-            {!mobile
-              ?
-            <Navbar background={background}>
-              <div>
-                <Routes>
-                  <Route
-                    path='/'
-                    element={<Landing />}
-                  />
-                  <Route
-                    path='/outdoors'
-                    element={<Outdoors />}
-                  />
-                  <Route
-                    path='/indoors'
-                    element={<Indoors />}
-                  />
-                  <Route
-                    path='/events'
-                    element={<Events />}
-                  />
-                  <Route
-                    path='/brews'
-                    element={<Brews />}
-                  />
-                  <Route
-                    path='/forum'
-                    element={<Forum />}
-                  />
-                  <Route
-                    path='/likes'
-                    element={<Likes />}
-                  />
-                  <Route
-                    path='/login'
-                    element={<LoginTabs />}
-                  />
-                  <Route
-                    path='*'
-                    element={<WrongPage />}
-                  />
-                </Routes>
-              </div>
-            </ Navbar>
-            :
+        <Router>
+          <Navbar background={background}>
+            <MobileNav />
             <div>
-              <MobileNav />
-              <main className='mobile-view'>
-                <Routes>
-                  <Route
-                    path='/'
-                    element={<Landing />}
-                  />
-                  <Route
-                    path='/outdoors'
-                    element={<Outdoors />}
-                  />
-                  <Route
-                    path='/indoors'
-                    element={<Indoors />}
-                  />
-                  <Route
-                    path='/events'
-                    element={<Events />}
-                  />
-                  <Route
-                    path='/brews'
-                    element={<Brews />}
-                  />
-                  <Route
-                    path='/forum'
-                    element={<Forum />}
-                  />
-                  <Route
-                    path='/likes'
-                    element={<Likes />}
-                  />
-                  <Route
-                    path='/login'
-                    element={<LoginTabs />}
-                  />
-                  <Route
-                    path='*'
-                    element={<WrongPage />}
-                  />
-                </Routes>
-              </main>
-              <Footer background={background} chillPlz={chillPlz} />
+              <Routes>
+                <Route
+                  path='/'
+                  element={<Landing />}
+                />
+                <Route
+                  path='/outdoors'
+                  element={<Outdoors />}
+                />
+                <Route
+                  path='/indoors'
+                  element={<Indoors />}
+                />
+                <Route
+                  path='/events'
+                  element={<Events />}
+                />
+                <Route
+                  path='/brews'
+                  element={<Brews />}
+                />
+                <Route
+                  path='/forum'
+                  element={<Forum />}
+                />
+                <Route
+                  path='/likes'
+                  element={<Likes />}
+                />
+                <Route
+                  path='/login'
+                  element={<LoginTabs />}
+                />
+                <Route
+                  path='*'
+                  element={<WrongPage />}
+                />
+              </Routes>
             </div>
-          }
+            <Footer background={background} chillPlz={chillPlz} />
+          </ Navbar>
         </Router>
       </ApolloProvider>
     </>
