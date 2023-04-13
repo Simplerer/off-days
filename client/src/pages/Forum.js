@@ -24,7 +24,9 @@ function Forum() {
 
   if (loading) {
     return (
-      <h2>Loading...</h2>
+      <div className="loading">
+        <h2>Loading...</h2>
+      </div>
     )
   }
 
@@ -33,25 +35,25 @@ function Forum() {
       <h1 className="page-titles">Some Boredom Busters!</h1>
       <main className="forum-page">
         <div className="forum-top">
-        {Auth.loggedIn()
-          ? <div>
-            < PostForm addPost={addPost} error={error} />
-          </div>
-          : <div id="forum-login">
-            <h2>Login to share your own!</h2>
-            <NavLink to='/login'>
-              <button className="likeBtn">Login</button>
-            </NavLink>
-          </div>}
-          </div>
+          {Auth.loggedIn()
+            ? <div>
+              < PostForm addPost={addPost} error={error} />
+            </div>
+            : <div id="forum-login">
+              <h2>Login to share your own!</h2>
+              <NavLink to='/login'>
+                <button className="likeBtn">Login</button>
+              </NavLink>
+            </div>}
+        </div>
         {posts[0]
           ?
           <section className="forum-bottom">
             {posts.map((post, index) => (
               <article key={index} className="post-card">
                 <div className="post-head">
-                  <h1>- {post.author.username} from {
-                  ((post.author.homeTown.charAt(0).toUpperCase()) + (post.author.homeTown.slice(1)))}, {post.author.state}</h1>
+                  <h1>{post.author.username} from {
+                    ((post.author.homeTown.charAt(0).toUpperCase()) + (post.author.homeTown.slice(1)))}, {post.author.state}</h1>
                   <h2>Posted:  {post.createdAt}</h2>
                 </div>
                 <p className="post-content">{post.text}</p>

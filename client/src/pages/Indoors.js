@@ -18,7 +18,9 @@ function Indoors() {
 
   if (loading) {
     return (
-      <h2 className="loading">...Loading</h2>
+      <div className="loading">
+        <h2>Loading...</h2>
+      </div>
     )
   }
 
@@ -37,7 +39,7 @@ function Indoors() {
             type: 'indoors'
           }
         })
-        console.log('DATA', data)
+        console.log(data)
       } catch (error) {
         console.error(error)
       }

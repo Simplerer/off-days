@@ -33,7 +33,9 @@ function Brews() {
 
   if (!loaded) {
     return (
-      <h2>...Loading</h2>
+      <div className="loading">
+        <h2>Loading...</h2>
+      </div>
     )
   }
 
@@ -52,7 +54,7 @@ function Brews() {
             type: 'brews'
           }
         })
-        console.log('DATA', data)
+        console.log(data)
       } catch (error) {
         console.error(error)
       }
@@ -71,17 +73,24 @@ function Brews() {
               <div className="brew-box">
                 <div className="brew-left">
                   <div className="brew-title">
-                    
+
                     {beer.website_url
                       ? <a href={beer.website_url} target='_blank' rel="noreferrer" ><h2>{beer.name}</h2></a>
                       : <a href={`https://www.google.com/search?q=${town}+${beer.name}`} target='_blank' rel="noreferrer"
                       ><h2>{beer.name}</h2></a>
                     }
                   </div>
-                  <h3>Located at:</h3>
-                  <a href={`https://www.google.com/maps/search/?api=1&query=${(beer.name).replace(' ', '+')}`} target='_blank' rel="noreferrer" >
-                    <h3>{beer.street} {town}</h3>
-                  </a>
+                  {beer.street
+                    ?
+                    <>
+                      <h3>Located at:</h3>
+                      <a href={`https://www.google.com/maps/search/?api=1&query=${(beer.name).replace(' ', '+')}`} target='_blank' rel="noreferrer" >
+                        <h3>{beer.street} {town}</h3>
+                      </a>
+                    </>
+                    :
+                    <></>
+                  }
                 </div>
                 <div className="brew-right">
                   {Auth.loggedIn()
@@ -92,6 +101,7 @@ function Brews() {
                       type="submit"
                       className="likeBtn"
                       onClick={handleSubmit}
+                      id="brew-like"
                     >Like</button>
                     :
                     <></>

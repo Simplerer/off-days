@@ -47,6 +47,14 @@
   transform: translateY(1px);
 }
 
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 450px;
+  font-size: 20px;
+  text-align: center;
+}
+
 /* --------------------Events page ------------------------------------------  */
 
 #event {
@@ -60,7 +68,7 @@
   display: flex;
   justify-content: space-around;
   position: relative;
-  width: 80%;
+  width: 65%;
   padding: 2%;
   margin: 2%;
   margin-bottom: 2%;
@@ -124,12 +132,13 @@
 /* -----------------  Brew Page --------------------------------------- */
 
 .brew-box {
+  position: relative;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  width: 60%;
   padding: 4%;
-  margin: 4%;
-  margin-bottom: 2%;
+  margin: 4% 0 2% 8%;
   background: var(--cards);
   border-radius: 8px;
   box-shadow: 2px 2px var(--dark), -.5em 0 .4em var(--mid);
@@ -164,6 +173,13 @@
 .brew-right {
   display: flex;
   align-items: flex-end;
+}
+
+#brew-like {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  margin: 1%;
 }
 
 /*   -----------------Outdoors page ----------------------------------- */
@@ -266,6 +282,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   margin: 2%;
   padding: 2%;
 }
@@ -296,18 +313,25 @@
 #games-like {
   position: absolute;
   right: 4px;
-  bottom: 0;
+  bottom: 4px;
   margin: 1%;
 }
 
 /*  -------------- Forum page ---------------------------- */
+
+#forum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .forum-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 2%;
-  min-width: 90%;
+  width: 80%;
 }
 
 .forum-top {
@@ -331,7 +355,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
 }
 
 .post-card {
@@ -352,7 +376,7 @@
 
 .post-card h2 {
   color: var(--mid);
-  margin-left: 4%;
+  margin-left: 2%;
 }
 
 .post-content {
@@ -361,6 +385,7 @@
   font-weight: 500;
   font-size: 24px;
   padding: 2%;
+  text-align: center;
 }
 
 /*  ---------Likes page -------------------------------------- */
@@ -384,8 +409,8 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  width: 75%;
-  margin: 4%;
+  width: 70%;
+  margin: 4% 0 4% 8%;
   padding: 4%;
   background: var(--cards);
   border-radius: 8px;
@@ -407,7 +432,7 @@
 
 .like h3 {
   margin-bottom: 6%;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .icons {
@@ -448,6 +473,13 @@
 
   .event-box img {
     max-width: 80%;
+  }
+
+  #brew-like {
+    position: absolute;
+    right: -90px;
+    bottom: 30%;
+    margin: 1%;
   }
 
   .park-card {
@@ -504,7 +536,20 @@
 
   .likes-box {
     min-width: none;
-    width: 150px;
-    margin: 3%;
+    width: 300px;
+    margin: 3% 0;
+    margin-left: 8%;
+  }
+
+  .like h3 {
+    font-size: 20px;
+  }
+
+  .loading {
+    position: absolute;
+    left: 40%;
+    top: 300px;
+    font-size: 16px;
+    text-align: center;
   }
 }

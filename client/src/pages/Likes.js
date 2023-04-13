@@ -20,9 +20,9 @@ function Likes() {
 
   if (loading) {
     return (
-
-      <h2 className="loading">loading...</h2>
-
+      <div className="loading">
+        <h2>Loading...</h2>
+      </div>
     )
   }
 

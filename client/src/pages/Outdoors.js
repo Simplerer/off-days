@@ -35,7 +35,9 @@ function Outdoors() {
 
   if (!haveParks) {
     return (
-      <h2>...Loading</h2>
+      <div className="loading">
+        <h2>Loading...</h2>
+      </div>
     )
   }
 
@@ -54,7 +56,7 @@ function Outdoors() {
             type: 'outdoors'
           }
         })
-        console.log('DATA', data)
+        console.log(data)
       } catch (error) {
         console.error(error)
       }
