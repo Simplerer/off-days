@@ -61,7 +61,7 @@ const resolvers = {
       let beers
       if (args.homeTown) {
         const { data } = await
-          axios.get(`https://api.openbrewerydb.org/breweries?by_city=${args.homeTown}&page=${randIndex}&per_page=8`, {
+          axios.get(`https://api.openbrewerydb.org/breweries?by_city=${args.homeTown}&page=${randIndex}&per_page=12`, {
             mode: 'no-cors'
           });
         beers = data

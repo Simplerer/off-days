@@ -79,7 +79,8 @@ function Events() {
   return (
     <div id="event">
       <h1 className="page-titles">Maybe catch a show?</h1>
-      <main className="page-content">
+      <main className="page-content"
+      id="event-holder">
         {
           events.map((event, index) => (
             <div key={index} className="event-box">

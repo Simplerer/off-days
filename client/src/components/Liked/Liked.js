@@ -7,11 +7,11 @@ function Liked({ liked, clearIt }) {
       <main className="likes">
         <section className="popup">
           <div className="liked-box">
-          </div>
           <h1>
             Added to Likes!
           </h1>
           <button id="clearBtn" onClick={clearIt}>Got it!</button>
+          </div>
         </section>
       </main>
     </div>

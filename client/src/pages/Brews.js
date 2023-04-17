@@ -66,7 +66,7 @@ function Brews() {
   return (
     <div id="brews">
       <h1 className="page-titles">Time for a Brewery Tour!</h1>
-      <main>
+      <main id="big-brew">
         {
           beers.map((beer, index) => (
             <div key={index}>
@@ -108,7 +108,7 @@ function Brews() {
                   }
                 </div>
               </div>
-              <hr></hr>
+              <hr className="brew-hr"></hr>
             </div>
           ))
         }

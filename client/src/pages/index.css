@@ -4,7 +4,7 @@
   --mid: #55828B;
   --dark: #3B6064;
   --darkest: #364958;
-  --cards:linear-gradient(0.25turn, #8fc6d1, #53b383, #d6d9da);
+  --cards:linear-gradient(0.25turn, #8fc6d1, #d6d9da);
 }
 
 /*  -------------------All pages ----------------------------------------------- */
@@ -59,16 +59,26 @@
 
 #event {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+}
+
+#event-holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
 }
 
 .event-box {
   display: flex;
   justify-content: space-around;
   position: relative;
-  width: 65%;
+  width: 30%;
+  min-height: 15%;
   padding: 2%;
   margin: 2%;
   margin-bottom: 2%;
@@ -82,6 +92,7 @@
   border-radius: 8px;
   box-shadow: 3px 3px var(--dark), -1em 0 .4em var(--mid);
   transition: all 600ms;
+  width: 150px;
 }
 
 .event-box img:hover {
@@ -97,7 +108,7 @@
 .event-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: baseline;
 }
 
 .event-right {
@@ -399,7 +410,8 @@
 
 .likes-page {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 2%;
 }
@@ -409,8 +421,8 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  width: 70%;
-  margin: 4% 0 4% 8%;
+  width: 30%;
+  margin: 4% 0 4% 4%;
   padding: 4%;
   background: var(--cards);
   border-radius: 8px;
@@ -438,7 +450,32 @@
 .icons {
   position: absolute;
   right: 10%;
+  bottom: 10%;
   font-size: 70px;
+}
+
+@media only screen and (min-width: 1280px) {
+  
+  /* .brew-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 40%;
+  }
+
+  .brew-hr {
+    display: none;
+  }
+
+  #big-brew {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 18%;
+    margin-bottom: 20%;
+  } */
+
 }
 
 @media only screen and (max-width: 980px) {
@@ -463,6 +500,7 @@
     padding: 2%;
     padding-bottom: 12%;
     margin-bottom: 4%;
+    width: 80%;
   }
 
   #event-like { 
@@ -472,7 +510,11 @@
   }
 
   .event-box img {
-    max-width: 80%;
+    width: 80%;
+  }
+
+  .event-left {
+    align-items: center;
   }
 
   #brew-like {
