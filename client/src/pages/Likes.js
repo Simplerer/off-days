@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { GET_ME } from '../utils/queries';
 import { DELETE_LIKE } from '../utils/mutations';
+import Auth from '../utils/auth';
 import {
   FaCampground,
   FaGamepad,
@@ -14,10 +15,18 @@ import './index.css';
 
 function Likes() {
 
+  const [admin, setAdmin] = useState(false)
   const { data, loading } = useQuery(GET_ME)
   const [deleteLike] = useMutation(DELETE_LIKE, {
     refetchQueries: [{ query: GET_ME }]
   });
+
+  useEffect(() => {
+    const user = Auth.getProfile()
+    if (user.data.username === 'admin') {
+      setAdmin(true)
+    }
+  }, [])
 
   const self = data?.getMe || {};
 
@@ -54,12 +63,12 @@ function Likes() {
               <div className="likes-box" key={index}>
                 <div className="like">
                   <a href={like.link} target="_blank" rel="noreferrer">
-                  <h3>{like.event}</h3>
+                    <h3>{like.event}</h3>
                   </a>
-                    <button
-                     className="deleteBtn"
-                     onClick={() => handleClick(like.event)}
-                     >Delete</button>
+                  <button
+                    className="deleteBtn"
+                    onClick={() => handleClick(like.event)}
+                  >Delete</button>
                 </div>
                 <div className="icons">
                   {like.type === "events" &&
@@ -103,6 +112,18 @@ function Likes() {
           <div id="no-likes">
             <h1>No Likes Yet!!</h1>
           </div>}
+        {admin
+          ?
+          <NavLink
+            to='/adminman'
+            className="adminBTN">
+            <button>
+              Check Users
+            </button>
+          </NavLink>
+          :
+          <></>
+        }
       </main>
     </div>
   )

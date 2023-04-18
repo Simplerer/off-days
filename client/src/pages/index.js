@@ -6,8 +6,9 @@ import Events from "./Events";
 import Brews from "./Brews";
 import Likes from './Likes';
 import Forum from './Forum';
+import Admin from './Admin';
 
 const pages = { WrongPage, Outdoors, Landing, 
-  Indoors, Events, Brews, Forum, Likes };
+  Indoors, Events, Brews, Forum, Likes, Admin };
 
 export default pages;

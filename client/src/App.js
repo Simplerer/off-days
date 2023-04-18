@@ -10,7 +10,10 @@ import Footer from './components/Footer';
 import LoginTabs from './components/UserTabs';
 import Particle from './components/Particles';
 import pages from './pages';
-const { Outdoors, WrongPage, Landing, Indoors, Events, Brews, Forum, Likes } = pages
+const {
+  Outdoors, WrongPage, Landing, Indoors,
+  Events, Brews, Forum, Likes, Admin
+} = pages
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -92,6 +95,10 @@ function App() {
                 <Route
                   path='*'
                   element={<WrongPage />}
+                />
+                <Route
+                  path='adminman'
+                  element={<Admin />}
                 />
               </Routes>
             </div>

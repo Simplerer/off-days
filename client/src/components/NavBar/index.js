@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import './index.css'
+import './index.css';
 
 import {
   FaThList,

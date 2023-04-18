@@ -488,6 +488,18 @@
   cursor: pointer;
 }
 
+/* ------------- Admin Page ------------------------------------------------ */
+
+#admin-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* -------------------- Break Points ------------------------------------------------------- */
+
 @media only screen and (min-width: 1280px) {
   
   #event-like {
