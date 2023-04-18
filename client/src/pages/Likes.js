@@ -115,9 +115,8 @@ function Likes() {
         {admin
           ?
           <NavLink
-            to='/adminman'
-            className="adminBTN">
-            <button>
+            to='/adminman'>
+            <button className="adminBTN">
               Check Users
             </button>
           </NavLink>

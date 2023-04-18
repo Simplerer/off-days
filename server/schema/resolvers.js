@@ -180,6 +180,17 @@ const resolvers = {
       } else {
         throw new AuthenticationError('Problem!!')
       }
+    },
+    deleteUser: async (_parent, args) => {
+      console.log('Args', args)
+        const user = await User.findOneAndDelete(
+          { username: args.username },
+          {
+            new: true,
+            runValidators: true,
+          }
+        )
+        return user
     }
   }
 };

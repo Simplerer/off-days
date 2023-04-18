@@ -39,11 +39,11 @@
   cursor: pointer;
 }
 
-.likeBtn:hover {
+.likeBtn:hover, .adminBTN:hover {
   transform: scale(1.05);
 }
 
-.likeBtn:active {
+.likeBtn:active, .adminBTN:active {
   -webkit-transform: translateY(1px);
   transform: translateY(1px);
 }
@@ -490,13 +490,57 @@
 
 /* ------------- Admin Page ------------------------------------------------ */
 
+.adminBTN {
+  position: absolute;
+  top: 250%;
+  left: 45%;
+  padding: 10px;
+  margin: auto;
+  font-size: 30px;
+  border-radius: 20%;
+  color: #d4e0e2;
+  background: radial-gradient(closest-side, #55828B, #468454, #728015);
+  cursor: pointer;
+}
+
 #admin-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
+
+#admin-content {
+  padding: 2%;
+  margin: auto;
+}
+
+.admin-card {
+  margin: 4%;
+  padding: 4%;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(95, 95, 67);
+  background: radial-gradient(circle at 0, var(--mid), var(--light) 50%, var(--lightest) 75%, var(--darkest) 75%);
+}
+
+.admin-area {
+  padding: 1%;
+  margin: 1%;
+}
+
+.admin-titles {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(47, 47, 7);
+}
+
+.admin-post {
+  margin: 4% 1% 4% 1%;
+}
+
+
 
 /* -------------------- Break Points ------------------------------------------------------- */
 

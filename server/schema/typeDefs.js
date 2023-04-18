@@ -135,7 +135,7 @@ const typeDefs = gql`
       state: String
     ): Auth
     login(username: String!, password: String!): Auth
-    deleteUser: User
+    deleteUser(username: String!): User
     addPost(text: String, userId: ID): Post
     createComment(text: String!, userId: ID!, postId: ID!): Comment
     createLike(userId: ID, event: String, link: String, type: String): User 

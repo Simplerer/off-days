@@ -6,17 +6,18 @@ import { DELETE_USER } from '../utils/mutations';
 function Admin() {
 
   const { data, loading } = useQuery(GET_USERS)
-  const [deleteUser] = useMutation(DELETE_USER, {
+  const [deleteUser] = useMutation(DELETE_USER , {
     refetchQueries: [{ query: GET_USERS }]
   });
 
   const users = data?.getUsers || {};
 
-  const handleClick = async (username) => {
+  const handleClick = async (name) => {
     try {
+      console.log(name)
       const { data } = await deleteUser({
         variables: {
-          user: username
+          username: name
         }
       })
       console.log(data)
@@ -36,42 +37,37 @@ function Admin() {
   return (
     <main id="admin-page">
       <h1>User Handler</h1>
-      <section>
+      <section id="admin-content">
         {users.map((user, index) => (
           <div key={index}
             className="admin-card">
-            <h2>{user.username}</h2>
-            <ul>
-              <li>
+            <div className="admin-area">
+              <h2 className="admin-titles">{user.username}</h2>
+              <p>
                 Id: {user._id}
-              </li>
-              <li>
-                {user.homeTown}
-              </li>
-              <li>
-                {user.state}
-              </li>
-            </ul>
-            <div className="admin-likes">
-              <h3>Likes</h3>
-              <ol>
+              </p>
+              <p>
+                {user.homeTown}, {user.state}
+              </p>
+            </div>
+            <div className="admin-area">
+              <h3 className="admin-titles">Likes</h3>
               {user.likes.map((like, index) => (
-                  <li key={index}>{like.event}</li>
+                <p key={index}>{like.event}</p>
               ))}
-                </ol>
             </div>
-            <div className="admin-posts">
-              <h3>Posts</h3>
-              <ol>
+            <div className="admin-area">
+              <h3 className="admin-titles">Posts</h3>
               {user.posts.map((post, index) => (
-                  <li key={index}>{post.createdAt}
-                  <br></br>{post.text}</li>
+                <div key={index} className="admin-post">
+                  <p>{post.createdAt}</p>
+                  <p>{post.text}</p>
+                </div>
               ))}
-                </ol>
             </div>
-            <button 
-            className="admin-button"
-            onClick={() => handleClick(user.username)}>
+            <button
+              className="deleteBtn"
+              onClick={() => handleClick(user.username)}>
               Delete</button>
           </div>
         ))}
