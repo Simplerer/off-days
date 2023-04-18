@@ -139,6 +139,7 @@ const typeDefs = gql`
     addPost(text: String, userId: ID): Post
     createComment(text: String!, userId: ID!, postId: ID!): Comment
     createLike(userId: ID, event: String, link: String, type: String): User 
+    deleteLike(event: String!): User
   }
 `;
 

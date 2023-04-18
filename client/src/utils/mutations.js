@@ -82,3 +82,16 @@ export const CREATE_LIKE = gql`
 }
 `
 
+export const DELETE_LIKE = gql`
+  mutation DeleteLike($event: String!) {
+  deleteLike(event: $event) {
+    username
+    likes {
+      _id
+      event
+      link
+      type
+    }
+  }
+}
+`

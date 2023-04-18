@@ -138,7 +138,6 @@ const resolvers = {
       }
     },
     createLike: async (_parent, args, context) => {
-      console.log('Args', args)
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
@@ -149,6 +148,27 @@ const resolvers = {
                 event: args.event,
                 link: args.link,
                 type: args.type
+              }
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        )
+      } else {
+        throw new AuthenticationError('Problem!!')
+      }
+    },
+    deleteLike: async (_parent, args, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: {
+              likes:
+              {
+                event: args.event
               }
             },
           },

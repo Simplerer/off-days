@@ -1,22 +1,38 @@
 import React from "react";
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { GET_ME } from '../utils/queries';
+import { DELETE_LIKE } from '../utils/mutations';
 import {
   FaCampground,
   FaGamepad,
   FaGuitar,
-  FaBeer
+  FaBeer,
+  // FaCommentsDollar
 } from "react-icons/fa";
 import './index.css';
 
 function Likes() {
 
   const { data, loading } = useQuery(GET_ME)
+  const [deleteLike] = useMutation(DELETE_LIKE, {
+    refetchQueries: [{ query: GET_ME }]
+  });
 
   const self = data?.getMe || {};
 
-  console.log(self.likes)
+  const handleClick = async (like) => {
+    try {
+      const { data } = await deleteLike({
+        variables: {
+          event: like
+        }
+      })
+      console.log(data)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   if (loading) {
     return (
@@ -37,10 +53,13 @@ function Likes() {
             {self.likes.map((like, index) => (
               <div className="likes-box" key={index}>
                 <div className="like">
-                  <h3>{like.event}</h3>
                   <a href={like.link} target="_blank" rel="noreferrer">
-                    <button className="likeBtn">Link</button>
+                  <h3>{like.event}</h3>
                   </a>
+                    <button
+                     className="deleteBtn"
+                     onClick={() => handleClick(like.event)}
+                     >Delete</button>
                 </div>
                 <div className="icons">
                   {like.type === "events" &&

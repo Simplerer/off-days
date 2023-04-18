@@ -59,3 +59,17 @@ p {
   -webkit-transform: translateY(1px);
   transform: translateY(1px);
 }
+
+@media only screen and (max-width: 480px) {
+  .post-form {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .postBtn {
+    padding: 16px;
+    font-size: 18px;
+    margin-left: 10%;
+  }
+}
