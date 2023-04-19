@@ -52,6 +52,7 @@ const typeDefs = gql`
 
   type SeatGeek {
     id: ID
+    datetime_utc: String
     venue: Venue
     performers: [Performer]
   }

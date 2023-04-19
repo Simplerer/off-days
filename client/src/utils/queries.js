@@ -57,6 +57,7 @@ export const SEAT_GEEK = gql`
   query SeatGeekSearch($lat: String, $lon: String) {
   seatGeekSearch(lat: $lat, lon: $lon) {
     id
+    datetime_utc
     venue {
       name
       url

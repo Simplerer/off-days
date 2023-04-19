@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USERS } from '../utils/queries';
 import { DELETE_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 function Admin() {
 
+  const [admin, setAdmin] = useState(false)
   const { data, loading } = useQuery(GET_USERS)
-  const [deleteUser] = useMutation(DELETE_USER , {
+  const [deleteUser] = useMutation(DELETE_USER, {
     refetchQueries: [{ query: GET_USERS }]
   });
 
-  const users = data?.getUsers || {};
+  useEffect(() => {
+    const user = Auth.getProfile()
+    if (user.data.username === 'admin') {
+      setAdmin(true)
+    }
+  }, [])
 
   const handleClick = async (name) => {
     try {
@@ -25,6 +32,7 @@ function Admin() {
       console.error(err)
     }
   }
+  const users = data?.getUsers || {};
 
   if (loading) {
     return (
@@ -65,10 +73,16 @@ function Admin() {
                 </div>
               ))}
             </div>
-            <button
-              className="deleteBtn"
-              onClick={() => handleClick(user.username)}>
-              Delete</button>
+            {admin
+              ?
+              <button
+                className="deleteBtn"
+                onClick={() => handleClick(user.username)}>
+                Delete
+              </button>
+              :
+              <></>
+            }
           </div>
         ))}
       </section>
