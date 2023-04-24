@@ -43,6 +43,7 @@ const typeDefs = gql`
     name: String
     image: String
     url: String
+    id: ID
   }
 
   type Venue {

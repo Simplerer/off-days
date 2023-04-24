@@ -63,7 +63,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  /* align-items: center; */
 }
 
 #event-holder {
@@ -111,6 +110,10 @@
   display: flex;
   flex-direction: column;
   align-items: baseline;
+}
+
+.event-left h4 {
+  padding: 1%;
 }
 
 .event-right {
@@ -259,6 +262,15 @@
 }
 
 /*  ---------------- Indoors page ----------------------------- */
+
+
+
+.games-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4%;
+}
 
 .games-box {
   display: flex;
@@ -551,6 +563,39 @@
     bottom: 30%;
   }
 
+  .event-box {
+    width: 25%;
+    height: 20%;
+  }
+
+  .games-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+  }
+
+  .games-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    min-height: 70%;
+    margin: 4%;
+    text-align: center;
+  }
+
+  .games-box img {
+    max-width: 60%;
+  }
+
+  #games-like {
+    position: relative;
+  }
+
 }
 
 @media only screen and (max-width: 980px) {
@@ -567,6 +612,7 @@
 
   .event-left {
     align-items: center;
+    text-align: center;
   }
 
   .brew-box {
@@ -582,6 +628,10 @@
 }
 
 @media only screen and (max-width: 480px) {
+
+  #forum-mobile {
+    display: none;
+  }
   
   .event-box {
     padding-bottom: 12%;
@@ -597,10 +647,6 @@
 
   .event-box img {
     width: 80%;
-  }
-
-  .event-left {
-    align-items: center;
   }
 
   #brew-like {

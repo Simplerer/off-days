@@ -51,7 +51,7 @@ function Indoors() {
   return (
     <div id="indoors">
       <h1 className="page-titles">Since you are already on the computer...</h1>
-      <main className="page-content">
+      <main className="games-content">
         {
           games.map((game, index) => (
             <div key={index} className="games-box">

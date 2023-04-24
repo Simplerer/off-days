@@ -39,7 +39,7 @@ function Events() {
     }, // Use data from the first query in the variables
     onCompleted: () => setInfo(!info)
   });
-  const events = data?.seatGeekSearch || {};
+  const events = data?.seatGeekSearch || {}; console.log(events)
 
   if (loading) return <h2>Loading...</h2>;
   if (error || secondError) return <p>Error :(</p>;
@@ -88,6 +88,7 @@ function Events() {
                 <img src={event.performers[0].image} alt={`${event.performers[0].name}`} />
                 <a href={event.venue.url} target='_blank' rel="noreferrer">
                   <h3>{event.venue.name}</h3>
+                  <h4>{event.datetime_utc.slice(5,10)}</h4>
                 </a>
               </div>
               <div className="event-right">
